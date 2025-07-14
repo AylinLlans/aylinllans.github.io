@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles.css">
+  <title>Aylin Llans - Introspecciones</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+<body class="bg-[var(--background-primary)]">
+  <!-- Barra de Navegación (con "Introspecciones" resaltado) -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-3 shadow-md" x-data="{ mobileMenuOpen: false }">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none text-gray-900"><svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg></button>
+      <ul class="hidden md:flex space-x-6 items-center">
+        <li><a href="../index.html" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
+        <li><a href="../index.html#obras" class="text-gray-900 hover:text-gray-500 text-md">Obras</a></li>
+        <li x-data="{ open: false }" class="relative">
+          <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md font-bold">Escritos <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+          <ul x-show="open" @click.away="open = false" x-transition class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+            <li><a href="./poemas.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Poemas</a></li>
+            <li><a href="./fragmentos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fragmentos</a></li>
+            <li><a href="./introspecciones.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">Introspecciones</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
+      </ul>
+    </div>
+    <!-- Menú móvil -->
+  </nav>
+
+  <main class="main pt-20">
+    <h1 class="text-4xl text-center font-bold text-[var(--primary-color)] mt-8">Introspecciones</h1>
+    <!-- ¡Aquí va tu contenido! -->
+  </main>
+</body>
+</html>

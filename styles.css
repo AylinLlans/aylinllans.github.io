@@ -1,3 +1,4 @@
+/* ==================== INICIO: styles.css ==================== */
 :root {
   --background-primary: #f9f4ef;
   --primary-color: #A3A3A3;
@@ -15,3 +16,43 @@ html {
 body {
   font-family: 'Geist', sans-serif;
 }
+
+/* --- ESTILOS MOVIDOS DESDE POEMAS.HTML --- */
+.poem-menu {
+  background: transparent;
+}
+
+.poem-letter {
+  font-family: 'Georgia', serif;
+  transition: all 0.2s;
+  color: var(--primary-color);
+}
+
+.poem-letter:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.mobile-poem-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-poem-btn {
+    display: flex;
+  }
+
+  .poem-letters-container {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    left: 0;
+    z-index: 20;
+    background: var(--background-primary);
+  }
+
+  .poem-letters-container.open {
+    display: flex;
+  }
+}
+/* ==================== FIN: styles.css ==================== */
