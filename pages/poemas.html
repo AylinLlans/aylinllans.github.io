@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles.css">
+  <title>Aylin Llans - Poemas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Estilo solo para el menú de poemas */
+    .poem-menu {
+      background: transparent;
+    }
+
+    .poem-letter {
+      font-family: 'Georgia', serif;
+      transition: all 0.2s;
+      color: var(--primary-color);
+    }
+
+    .poem-letter:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .mobile-poem-btn {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-poem-btn {
+        display: flex;
+      }
+
+      .poem-letters-container {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        left: 0;
+        z-index: 20;
+        background: var(--background-primary);
+      }
+
+      .poem-letters-container.open {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-[var(--background-primary)]">
+
+  <!-- NAV ORIGINAL -->
+  <nav class="text-white px-4 py-3">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
+
+      <button id="menu-btn" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <ul class="hidden md:flex space-x-6">
+        <li><a href="#" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
+        <li><a href="#obras" class="text-gray-900 hover:text-gray-500 text-md">Obras</a></li>
+        <li><a href="#" class="text-gray-900 hover:text-gray-500 text-md font-bold">Poemas</a></li>
+        <li><a href="#" class="text-gray-900 hover:text-gray-500 text-md">Fragmentos</a></li>
+        <li><a href="#" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden mt-2 px-4">
+      <ul class="flex flex-col space-y-2">
+        <li><a href="#" class="block py-2 border-b border-gray-700 text-gray-900">Inicio</a></li>
+        <li><a href="#" class="block py-2 border-b border-gray-700 text-gray-900">Obras</a></li>
+        <li><a href="#" class="block py-2 border-b border-gray-700 text-gray-900 font-bold">Poemas</a></li>
+        <li><a href="#" class="block py-2 border-b border-gray-700 text-gray-900">Fragmentos</a></li>
+        <li><a href="#" class="block py-2 border-b border-gray-700 text-gray-900">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MENÚ DE POEMAS NUEVO - VERSIÓN CORREGIDA -->
+  <div class="poem-menu py-4 px-6 flex">
+    <div class="max-w-5xl mx-auto justify-center rounded bg-white px-8">
+      <!-- Solo visible en mobile -->
+      <div class="mobile-poem-btn md:hidden flex justify-between items-center">
+        <h2 class="text-lg font-bold text-[var(--primary-color)]">FILTRAR POEMAS</h2>
+        <button id="poem-menu-btn" class="text-[var(--primary-color)] focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Letras de poemas -->
+      <div id="poem-letters" class="poem-letters-container md:flex justify-center space-x-6 md:space-x-8">
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π³</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π⁴</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π⁵</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π⁶</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π⁷</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π⁸</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π⁹</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π¹⁰</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π¹¹</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π¹²</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π¹³</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π¹⁴</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π¹⁵</a>
+        <a href="#" class="poem-letter text-xl md:text-2xl font-medium px-2 py-1">π¹⁶</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENIDO -->
+  <main class="main">
+    <p class="text-[var(--primary-color)] p-8 bg-white rounded-xl mx-64 mt-16">π: una constante irracional, infinita.
+      Como la vida misma.
+      Cada uno de estos poemas es un decimal más en mi secuencia,
+      una cifra emocional de un ciclo que no se cierra del todo,
+      pero que siempre regresa a su centro con nuevos sentidos.</p>
+  </main>
+
+  <script>
+    // Script original del menú principal
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Script nuevo solo para el menú de poemas
+    const poemMenuBtn = document.getElementById('poem-menu-btn');
+    const poemLetters = document.getElementById('poem-letters');
+
+    poemMenuBtn?.addEventListener('click', () => {
+      poemLetters.classList.toggle('open');
+    });
+
+    // Cerrar menú al seleccionar opción (mobile)
+    document.querySelectorAll('.poem-letter').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          poemLetters.classList.remove('open');
+        }
+      });
+    });
+  </script>
+
+  <script src="//unpkg.com/alpinejs" defer></script>
+</body>
+
+</html>

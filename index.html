@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css">
+  <title>Aylin Llans</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[var(--background-primary)]">
+
+  <nav class="text-white px-4 py-3">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
+
+      <button id="menu-btn" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <ul class="hidden md:flex space-x-6">
+        <li><a href="#" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
+        <li><a href="#obras" class="text-gray-900 hover:text-gray-500 text-md transition duration-300">Obras</a></li>
+        <li><a href="./pages/poemas.html" class="text-gray-900 hover:text-gray-500 text-md">Poemas</a></li>
+        <li><a href="#" class="text-gray-900 hover:text-gray-500 text-md">Fragmentos</a></li>
+        <li><a href="#" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden mt-2 px-4">
+      <ul class="flex flex-col space-y-2">
+        <li><a href="#" class="block py-2 border-b border-gray-700 text-gray-900">Inicio</a></li>
+        <li><a href="#obras" class="block py-2 border-b border-gray-700 text-gray-900">Obras</a></li>
+        <li><a href="#" class="block py-2 border-b border-gray-700 text-gray-900">Poemas</a></li>
+        <li><a href="#" class="block py-2 border-b border-gray-700 text-gray-900">Fragmentos</a></li>
+        <li><a href="#" class="block py-2 border-b border-gray-700 text-gray-900">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main">
+    <h2 class="text-6xl pt-10 pl-10 text-[var(--primary-color)]">Arte y Poesía</h2>
+
+    <p class="px-8 mt-10 text-[var(--primary-color)] text-xl">Esa materialización de lo emocional en un algo que puede
+      ser
+      percibido por uno o varias sentidos, incluso cuando esa emoción se camufla de idea, denuncia o juego.</p>
+
+    <section class="bg-white m-6 mt-16 p-8 md:flex md:gap-8 rounded-lg shadow-md">
+      <div class="md:w-2/3">
+        <div class="text-[var(--primary-color)] space-y-6 text-xl leading-relaxed">
+          <p>Aylin Llans es una autora y artista visual nacida en Ciudad de Buenos Aires, cuya obra transita los
+            pliegues más íntimos de la conciencia humana. Su universo poético está atravesado por un cuestionamiento
+            constante, el dolor existencial y la necesidad de autenticidad como anclaje en medio del absurdo.
+          </p>
+
+          <p>
+            Con una voz lírica profundamente introspectiva, Aylin teje textos que no sólo expresan, sino que exploran
+            las fisuras del ser: el desgarro de sentirse incomprendida, la angustia de existir, la belleza hallada en el
+            instante trivial y la ternura que persiste aun en medio de la devastación. Su poesía, muchas veces
+            desgarradora, no busca complacer —busca confrontar y revelar. Cada verso es un cuerpo que respira dolor,
+            lucidez y resistencia.
+          </p>
+            
+          <p>
+            En sus composiciones visuales Aylin despliega una sensibilidad que complementa su escritura: un lenguaje
+            plástico cargado de significado, donde la emoción se materializa, se observa y se honra. El arte visual,
+            como su poesía, funciona como puente entre el cuerpo, el sentir y el pensamiento simbólico.
+          </p>
+            
+          <p>
+            Su estética: íntima, cruda, honesta. No hay máscaras, ni adornos innecesarios. Hay entrega. Y desde allí,
+            Aylin invita al lector/espectador a reconocerse en su propia vulnerabilidad.
+          </p>
+        </div>
+      </div>
+      <div class="md:w-1/3 mt-8 md:mt-0 flex items-center justify-center">
+        <img src="./images/aylinllans.png" alt="Aylín Llans, artista visual y poeta"
+          class="rounded-lg w-full max-w-xs h-auto object-cover shadow-lg">
+      </div>
+    </section>
+
+    <div class="flex justify-center mt-16 mb-8" id="obras">
+      <h2 class="bg-white rounded-lg text-center text-3xl text-[var(--secondary-color)] py-4 px-8 shadow-md w-[80%]">
+        Obras
+      </h2>
+    </div>
+
+    <section class="bg-white py-8 rounded-lg shadow-md mx-auto mb-16 w-[80%]">
+      <div class="flex justify-center">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 w-[80%] max-w-4xl">
+
+          <div
+            class="group relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all flex flex-col h-full"
+            x-data="{ showInfo: false }" @mouseover="showInfo = true" @mouseout="showInfo = false">
+
+            <div class="flex-grow flex items-center justify-center bg-gray-100 p-4 h-[350px]">
+              <img src="./images/atisbo-de-luz/2.png" alt="Obra: Atisbo de Luz"
+                class="max-h-full max-w-full object-contain">
+            </div>
+
+            <div
+              class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center transition-opacity duration-300"
+              :class="{'opacity-100': showInfo, 'opacity-0': !showInfo}">
+              <p class="text-white text-center px-4 text-lg font-medium">"Atisbo de luz"</p>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 bg-gray-50 p-6 transition-all duration-300 transform"
+              :class="{'translate-y-0': showInfo, 'translate-y-full': !showInfo}">
+              <p class="text-gray-700">Romper el encierro. Aferrarse a la grieta. Encontrar la luz.</p>
+            </div>
+          </div>
+
+          <div
+            class="group relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all flex flex-col h-full"
+            x-data="{ showInfo: false }" @mouseover="showInfo = true" @mouseout="showInfo = false">
+
+            <div class="flex-grow flex items-center justify-center bg-gray-100 p-4 h-[350px]">
+              <img src="./images/quien-sana-el-nino-que-fue/1.png" alt="Obra: Quien sana al niño que fue"
+                class="max-h-full max-w-full object-contain">
+            </div>
+
+            <div
+              class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center transition-opacity duration-300"
+              :class="{'opacity-100': showInfo, 'opacity-0': !showInfo}">
+              <p class="text-white text-center px-4 text-lg font-medium">"Quien sana al niño que fue"</p>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 bg-gray-50 p-6 transition-all duration-300 transform"
+              :class="{'translate-y-0': showInfo, 'translate-y-full': !showInfo}">
+              <p class="text-gray-700">Ser el refugio de nuestro propio pasado.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+
+        const start = window.scrollY;
+        const end = target.getBoundingClientRect().top + window.scrollY - 80;
+        const dist = end - start;
+        const dur = 800;
+        let startTime = null;
+
+        function easeInOutCubic(t) {
+          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        function anim(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const prog = Math.min((timestamp - startTime) / dur, 1);
+          window.scrollTo(0, start + dist * easeInOutCubic(prog));
+          if (prog < 1) requestAnimationFrame(anim);
+        }
+        requestAnimationFrame(anim);
+      });
+    });
+  </script>
+
+  <script src="//unpkg.com/alpinejs" defer></script>
+
+</body>
+
+</html>
