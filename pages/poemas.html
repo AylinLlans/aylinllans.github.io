@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<!-- Reemplaza todo tu <head> actual con esto -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Poemas de Aylin Llans | Poesía, Arte y Reflexión</title>
+  <meta name="description" content="Descubre los poemas originales de Aylin Llans: poesía contemporánea, emociones, arte y reflexión. Lee versos únicos y profundos.">
+  
+  <meta name="keywords" content="poemas, poesía, Aylin Llans, arte, versos, literatura, emociones, reflexión, poesía contemporánea">
+  <meta name="author" content="Aylin Llans">
+
+  <!-- URL Canónica (CORREGIDO) -->
+  <link rel="canonical" href="https://aylinllans.github.io/pages/poemas.html">
+
+  <!-- Metadatos para Redes Sociales (MEJORADO) -->
+  <meta property="og:title" content="Poemas de Aylin Llans | Poesía, Arte y Reflexión">
+  <meta property="og:description" content="Colección de poemas originales de Aylin Llans. Poesía contemporánea, arte y emociones en cada verso.">
+  <meta property="og:type" content="website">
+  <!-- CORREGIDO -->
+  <meta property="og:url" content="https://aylinllans.github.io/pages/poemas.html">
+  <meta property="og:locale" content="es_ES">
+  <!-- AÑADIDO: Crea y sube esta imagen (ej. 1200x630px) -->
+  <meta property="og:image" content="https://aylinllans.github.io/assets/social-image-poemas.jpg">
+  <meta property="og:site_name" content="Aylin Llans">
+
+  <!-- AÑADIDO: Metadatos para Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Poemas de Aylin Llans | Poesía, Arte y Reflexión">
+  <meta name="twitter:description" content="Colección de poemas originales de Aylin Llans. Poesía contemporánea, arte y emociones en cada verso.">
+  <meta name="twitter:image" content="https://aylinllans.github.io/assets/social-image-poemas.jpg">
+  
   <link rel="stylesheet" href="../styles.css">
-  <title>Aylin Llans - Poemas</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="//unpkg.com/alpinejs" defer></script>
 </head>
@@ -214,7 +241,7 @@
           <li><a href="./contacto.html" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
         </ul>
       </div>
-      <div x-show="mobileMenuOpen" class="md:hidden mt-2 px-4 bg-white">
+      <div x-show="mobileMenuOpen" class="md:hidden mt-2 px-4 bg-white text-gray-900 border-t border-gray-200">
         <ul class="flex flex-col space-y-2">
           <li><a href="../index.html" class="block py-2 border-b border-gray-200 text-gray-900">Inicio</a></li>
           <li><a href="../index.html#obras" @click="mobileMenuOpen = false" class="block py-2 border-b border-gray-200 text-gray-900">Obras</a></li>
@@ -255,22 +282,204 @@
 </div>
 
     <!-- Área de Contenido Principal -->
-    <main class="main px-4">
-  <p class="text-[var(--primary-color)] p-8 bg-white rounded-xl mx-auto mt-16 max-w-4xl text-center">π: una constante irracional, infinita. Como la vida misma. Cada uno de estos poemas es un decimal más en mi secuencia, una cifra emocional de un ciclo que no se cierra del todo, pero que siempre regresa a su centro con nuevos sentidos.</p>
-      <div id="poem-display-area" class="mt-12 mb-16">
-        <div x-show="selectedPoem" x-transition 
+    <!-- ASÍ QUEDARÁ TU CÓDIGO DESPUÉS DE LOS CAMBIOS -->
+
+<main class="main px-4">
+  
+    <!-- título principal de la página -->
+    <h1 class="text-4xl text-center font-bold text-[var(--primary-color)] mt-8">Poemas</h1>
+
+    <!-- párrafo introductorio -->
+    <p class="text-[var(--primary-color)] p-8 bg-white rounded-xl mx-auto mt-8 max-w-4xl text-center">
+        π: una constante irracional, infinita. Como la vida misma. Cada uno de estos poemas es un decimal más en mi secuencia, una cifra emocional de un ciclo que no se cierra del todo, pero que siempre regresa a su centro con nuevos sentidos.
+    </p>
+      
+    <div id="poem-display-area" class="mt-12 mb-16">
+        <!-- CAMBIO 2: El 'div' ahora es un 'article' para darle más importancia semántica -->
+        <article x-show="selectedPoem" x-transition 
              class="bg-white rounded-xl p-8 mx-auto" 
              :class="{ 'max-w-2xl': selectedPoemId !== 'pi-8', 'max-w-4xl': selectedPoemId === 'pi-8' }">
-          <h3 class="text-2xl text-center font-bold text-[var(--secondary-color)] mb-6" x-text="selectedPoem.title"></h3>
-          <div x-html="selectedPoem.content"></div>
-                    <!-- Firma y fecha -->
-          <div class="mt-8 text-center" x-show="selectedPoemId !== 'pi-11'">
-            <p class="text-md">-Aylin Llans</p>
-            <p class="text-sm text-gray-400" x-text="selectedPoem.date"></p>
-          </div>
-        </div>
-      </div>
-    </main>
+          
+            <!-- CAMBIO 3: El 'h3' ahora es un 'h2' para ser un subtítulo del H1 -->
+            <h2 class="text-3xl text-center font-bold text-[var(--secondary-color)] mb-6" x-text="selectedPoem.title"></h2>
+            
+            <div x-html="selectedPoem.content"></div>
+            
+            <div class="mt-8 text-center" x-show="selectedPoemId !== 'pi-11'">
+                <p class="text-md">-Aylin Llans</p>
+                <p class="text-sm text-gray-400" x-text="selectedPoem.date"></p>
+            </div>
+        </article>
+    </div>
+    
+</main>
+
+ <noscript>
+      <section aria-label="Colección de poemas para buscadores y accesibilidad">
+        
+        <article>
+          <h2>π³</h2>
+          <blockquote>
+            <p>No te ahogues por saberte momentáneo.<br>No permitas que la náusea se haga crónica.<br>No renuncies<br>a ser<br>espontáneo.<br>No pretendas encontrarle a todo lógica.</p>
+            <p>No esperes que el tiempo se consuma.<br>No te estanques en horas vacías.<br>No te pierdas<br>por favor<br>en la bruma.<br>No esperes de Cupido algún Mesías.</p>
+            <p>No te ovilles como feto entre vestigios.<br>No olvides a tu alma alimentar.<br>No cedas ante el mal en tus litigios.<br>No intentes tus sentires anular.</p>
+            <p>No desplumes caballos alados.<br>No te aísles de la verdad.<br>No hagas un desierto de tus prados.<br>No te habitués a la crueldad.</p>
+            <p>No te atrevas a quedar congelado.<br>No esperes a encontrarte envilecido.<br>No te quedes acurrucado<br>a mitad del recorrido.</p>
+          </blockquote>
+          <footer>-Aylin Llans, Noviembre 2017</footer>
+        </article>
+
+        <article>
+          <h2>π⁴</h2>
+          <blockquote>
+            <p>Supongamos que me dabas en un papel improvisado tu<br>número,<br>luego de que chocaron varias veces nuestras miradas,<br>antes de que tuviera que bajarme del tren.</p>
+            <p>O que yo te daba en un papel improvisado mi número,<br>con las mejillas completamente coloradas,<br>antes de perderte y verte partir desde el andén.</p>
+            <p>Supongamos que pasábamos de<br>un cruce de miradas a un intercambio de mensajes,<br>de un intercambio de mensajes a una salida,<br>de una salida a varias salidas,<br>de varias salidas a un nosotros.</p>
+            <p>Supongamos que no forzábamos la separación<br>entre tus ojos y los míos<br>y que no nos resignábamos al adiós que ese tren suponía.</p>
+            <p>Que entrábamos en acción<br>sin darnos por perdidos<br>y que encontrábamos el amor que esa mirada ofrecía.</p>
+            <p>Porque en el peor de los casos,<br>hubiéramos quedado en nada.</p>
+          </blockquote>
+          <footer>-Aylin Llans, Abril 2018</footer>
+        </article>
+
+        <article>
+          <h2>π⁵</h2>
+          <blockquote>
+            <p>Sólo una cosa sé: acabará<br>y no tengo miedo,<br>quiero que te quedes en todo.<br>Que queden fragmentos de recuerdos<br>escondidos en todas las cosas.</p>
+            <p>Que la nostalgia me embargue<br>presente y futuro si no estás en ellos.<br>Que me persiga tu ausencia<br>a todos lados y a toda hora.</p>
+            <p>Acepto el presidio<br>que conlleve aferrarme a lo pasajero<br>porque quiero amarte como pocos aman.</p>
+            <p>Quiero aprenderte de memoria,<br>volverte mi poesía favorita<br>llegando a extrañar incluso<br>aquello que me moleste.</p>
+            <p>Acabará, seguro que acabará;<br>todo,<br>absolutamente todo<br>acaba,<br>pero no dejaré que un fin precipitado<br>arrase con las tantas maneras en que<br>podemos hacer el amor.</p>
+          </blockquote>
+          <footer>-Aylin Llans, Agosto 2018</footer>
+        </article>
+
+        <article>
+          <h2>π⁶</h2>
+          <blockquote>
+            <p>A la vida que no pienso concebir,<br>a la que ayer soñé sostener entre mis brazos.<br>¡Oh, yo no podré hacerte existir!<br>¿Cómo podría sentirme digna de tus abrazos?<br></p>
+            <p>Porque sufrirías, mi vida, sufrirías.<br>Qué egoísta sería yo al traerte.<br>Tanta luz darías a mis días<br>y yo jamás podría darte suficiente<br></p>
+            <p>Tanto anhelé sostener tu pequeño cuerpo cálido<br>enseñándote a levantarte de cada caída<br>y que vale la pena vivir...<br></p>
+            <p>¿Pero qué motivo... ¡Oh qué motivo hallar válido<br>para hacerte existir a ti, mi vida,<br>que nada te aqueja al no existir!?<br></p>
+          </blockquote>
+          <footer>-Aylin Llans, Agosto 2018</footer>
+        </article>
+
+        <article>
+          <h2>π⁷</h2>
+          <blockquote>
+            <p>¡Oh y a mi corazón!,<br>pequeño cúmulo de nostalgias,<br>tan sólo le ruego<br>que no se marchite eternamente<br>y que no se quede para siempre<br>habitando un cementerio de golondrinas.</p>
+          </blockquote>
+          <footer>-Aylin Llans, Agosto 2018</footer>
+        </article>
+
+        <article>
+          <h2>π⁸</h2>
+          <blockquote>
+            <p>.neib sonravell somedop ,odrusbA ,arohA<br>.odaspilce saíbah em út euq<br>aicnafni al ed aírudibas al odartnocne eh euq ,arohA<br>.setnatsni sol ed aigam al odnaparta<br>zaguf ol ne dutinelp al racsub a odidnerpa eh y<br>aicnacifingisni e dutinif im odatpeca eh euq<br>aroha Y</p>
+            <p>.etratpeca euq sám<br>it ed anugla airotapacse adiv al ne yah on<br>,odot erbos odasop sah et<br>,lanrefni enigárov ,odrusbA ,tú hO<br></p>
+            <p>.adiv ed ognet euq saroh Sal<br>                         emodnábOr<br>                               aínogA<br>        elbatroposni anu noC<br>odajed sah eM<br>.ritsixe ed ,renet ed ,res ed<br>sanag sal odatiuq sah eM<br>.ozarbetna im sojo sim noc ratroc<br>secev sadaretier ohceh sah em<br>,rolod led ojih ,odrusbA ,úT</p>
+            <p>.sodot y odot ed<br>zediputse al sojo sim etna odnacatsed<br>obmur le odataberra sah eM<br>.senoicaripsa sim sadot odanim y<br>solehna sim ed onu adac odaetosip sah<br>,iuf euq ol odot odavell sah et ,odrusbA ,úT</p>
+            <hr>
+            <p>Tú, Absurdo, te has llevado todo lo que fui,<br>has pisoteado cada uno de mis anhelos<br>y minado todas mis aspiraciones.<br>Me has arrebatado el rumbo<br>destacando ante mis ojos la estupidez<br>de todo y todos.</p>
+            <p>Tú, Absurdo, hijo del dolor,<br>me has hecho reiteradas veces<br>cortar con mis ojos mi antebrazo.<br>Me has quitado las ganas<br>de ser, de tener, de existir.<br>Me has dejado<br>                        Con una insoportable<br>                        Agonía<br>                      rObándome<br>                     laS horas que tengo de vida.</p>
+            <p>Oh tú, Absurdo, vorágine infernal,<br>te has posado sobre todo<br>no hay en la vida escapatoria alguna de ti<br>más que aceptarte.</p>
+            <p>Y ahora<br>que he aceptado mi finitud e insignificancia<br>y he aprendido a buscar la plenitud en lo fugaz<br>atrapando la magia de los instantes.<br>Ahora, que he encontrado la sabiduría de la infancia<br>que tú me habías eclipsado.<br>Ahora, Absurdo, podemos llevarnos bien.</p>
+          </blockquote>
+          <footer>-Aylin Llans, Abril 2018</footer>
+        </article>
+
+        <article>
+          <h2>π⁹</h2>
+          <blockquote>
+            <p>Me caminan sobre el alma<br>los algún-día que no hemos cumplido,<br>y los besos y abrazos que no nos dimos<br>se me aferran cual ixodoideos.<br></p>
+            <p>Ha quedado tu ausencia<br>derramada sobre todas las cosas.<br></p>
+            <p>Hoy la luna tiene tu rostro,<br>el viento pasea tu olor,<br>y las hojas que flamean en los árboles<br>parecieran imitar el sonido de tu voz.<br></p>
+            <p>Mi corazón no para de deletrear tu nombre,<br>todo mi cuerpo clama por vos.<br>¡Oh, siento que moriré por insaciable inanición!<br></p>
+            <p>Debo embalsamar tu recuerdo,<br>que parece jugar conmigo a las escondidas<br>pero no puedo.<br>No puedo.<br></p>
+            <p>Ha quedado tu ausencia<br>derramada sobre todas las cosas.<br>¿Cómo y con qué quitarla?<br>Si esperar a su degradación<br>podría significar la mía.</p>
+          </blockquote>
+          <footer>-Aylin Llans, Abril 2018</footer>
+        </article>
+
+        <article>
+          <h2>π¹⁰</h2>
+          <blockquote>
+            <p>Tengo una soledad que se intensifica<br>al ver cómo todos caminan como si<br>todo esto tuviera sentido,<br>y una esperanza que se disuelve<br>cuando brindan con el mismo veneno que me ahoga.</p>
+            <p>Hoy cargo con el eco de una risa que ya no identifico y<br>me pregunto: ¿cómo recuperar el filtro que de niña llevaban<br>mis ojos?<br>Se ha desgastado,<br>se ha<br>rasgado,<br>lo he perdido.<br>Hoy mis pulmones se llenan de oxígeno pero yo me estoy<br>asfixiando.</p>
+            <p>Y quisiera<br>agradecerles la vida,<br>pero no puedo más que culparlos por condenarme a existir.</p>
+            <p>Acurrucada en mí misma estoy.<br>Sorbiendo las lágrimas que caen por detrás de mi sonrisa.<br>Consolando por mi renuncia al futuro que alguna vez soñé.<br>Ya no sé cuánto tiempo llevo en el funeral de mis anhelos.<br>Hoy soy el cáncer de mí misma,<br>¿mas cómo extirparme de mí?</p>
+            <p>¡Tanto me pesan las horas de cada bendito día!<br>¡Oh yo, babosa en mundo de sal!<br>¡Oh yo, que no me puedo rendir!</p>
+          </blockquote>
+          <footer>-Aylin Llans, Julio 2018 -versión ligeramente modificada-</footer>
+        </article>
+
+        <article>
+          <h2>π¹¹</h2>
+          <blockquote>
+            <p>Este poema ha sido omitido a propósito.<br>Porque el silencio también forma parte del lenguaje.</p>
+          </blockquote>
+          <footer>-Aylin Llans</footer>
+        </article>
+
+        <article>
+          <h2>π¹²</h2>
+          <blockquote>
+            <p>Me duele quedarme, me duele pensar en partir.<br>Me duele terriblemente existir.</p>
+            <p>Me duele no poder impedir<br>los disparos que la realidad da a mis alas<br>y que gozoso el absurdo me apuñale al caer.</p>
+            <p>Me duele desear dormir<br>y a mis ambiciones dejar olvidadas<br>dejándome por la muerte atraer.</p>
+            <p>¡Ay cómo me duele la vida!,<br>maldita y magnífica incógnita,<br>continuo sinfín de despedidas,<br>increíble máquina defectuosa.</p>
+            <p>¿Y cómo levantarse otra vez de la caída?<br>¿Cómo volver a la órbita?<br>¿Qué se hace cuando las cosas sabidas<br>te dejan el alma astillosa?</p>
+          </blockquote>
+          <footer>-Aylin Llans, Abril 2018</footer>
+        </article>
+
+        <article>
+          <h2>π¹³</h2>
+          <blockquote>
+            <p>Diseccionar el paisaje o el momento<br>y encontrar belleza en cada parte.<br>Maravillarse por la complejidad<br>de absolutamente todo<br>asombrándose ante la simple dichosa<br>desdicha de existir.</p>
+          </blockquote>
+          <footer>-Aylin Llans, Enero 2019</footer>
+        </article>
+
+        <article>
+          <h2>π¹⁴</h2>
+          <blockquote>
+            <p>No me ocultes la verdad,<br>te requiero que no me mientas.<br>Si me amás<br>no me mientas.</p>
+            <p>Si algún temor te apresa,<br>si tiene encarcelada tu autenticidad<br>como en un grito ahogado tras una mordaza<br>te pido que me lo hagas saber,<br>que buscaremos la forma, intentaré entender.<br>No quiero juzgarte<br>ni existe error<br>de la magnitud que sea<br>que no pueda estar lista para escuchar.</p>
+            <p>Suplico que no uses máscaras conmigo,<br>que no me encadenes<br>a una versión impostada<br>quitándome la posibilidad de elegir(te).</p>
+            <p>No me engañes<br>ni te engañes:<br>amar lo que creo que sos<br>sería una farsa.<br>No me esclavices<br>a una mentira<br>disfrazada de amor.<br>Si no te elijo conscientemente...<br>es como si me tuvieras lobotomizada.</p>
+            <p>Pero si decidís mentirme...<br>si después de todo decidís callar...<br>que la soledad<br>de recibir un amor que no es tuyo<br>ahogue tu corazón.<br>Que la hipocresía te inunde las entrañas<br>y te arda el alma por la putridez<br>que hayas dejado leudar en tu ser.</p>
+            <p>¿O en qué me habría equivocado acaso,<br>en qué podría haber fallado<br>para que no confiaras visceralmente en mí?</p>
+          </blockquote>
+          <footer>-Aylin Llans, Abril 2025</footer>
+        </article>
+
+        <article>
+          <h2>π¹⁵</h2>
+          <blockquote>
+            <p>La torpeza amorosa.<br>El intento valiente<br>de sembrar un jardín<br>en el yermo.</p>
+            <p>Ese embarcarse sin una clara consciencia<br>al océano de una nueva existencia por nombrar.</p>
+            <p>¡Qué fuerza de voluntad,<br>tanta resiliencia...!<br>Olvidar el frío en los propios huesos,<br>la queja muda del cuerpo exhausto,<br>para cobijar un puñado de vida temblorosa.</p>
+            <p>Escombros de hogares rotos<br>con más heridas que caricias en la memoria<br>haciendo lo que podían con lo que tenían<br>Eligiendo el bien entre tanto mal<br>con la torpeza propia<br>que conlleva hacer la vida.</p>
+            <p>Y así, me tejieron un nido<br>con la brizna callada de su entrega,<br>con el tesón humilde y obstinado<br>de quien planta una flor en la ceniza,<br>para legarnos un mapa distinto<br>al páramo heredado de sus ayeres.</p>
+          </blockquote>
+          <footer>-Aylin Llans, Mayo 2025</footer>
+        </article>
+
+        <article>
+          <h2>π¹⁶</h2>
+          <blockquote>
+            <p>Me gusta verme bien,<br>me gustan las comodidades.<br>¿Pero qué puede ofrecerme este universo<br>si lo único que anhelo<br>es una paz constante?</p>
+            <p>¿Qué puedo querer realmente<br>de este mundo<br>encadenado al sufrimiento?<br>Tanto dolor<br>en tantos rincones<br>de esta tierra<br>mientras disfruto un sorbo de café...</p>
+            <p>Deseo estar como bajo una sombra<br>en tu paz, Padre,<br>lejos de esta limitante materia;<br>de sus falsas cimas, de sus efímeras coronas,<br>de este goce fugaz<br>donde la comodidad que me abraza,<br>se siente hueca<br>cuando afuera,<br>la vida sigue siendo<br>un grito silencioso<br>que no puedo apagar.</p>
+          </blockquote>
+          <footer>-Aylin Llans, Mayo 2025</footer>
+        </article>
+
+      </section>
+    </noscript>
+
   </div>
 
 </body>

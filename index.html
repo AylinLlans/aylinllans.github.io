@@ -4,8 +4,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- === INICIO: METAETIQUETAS SEO OPTIMIZADAS === -->
+  <title>Aylin Llans | Arte Visual y Poesía Introspectiva</title>
+  <meta name="description"
+    content="Descubre el universo artístico de Aylin Llans. Explora obras de arte visual cargadas de emoción y lee poesía y escritos que confrontan el ser. Portafolio oficial.">
+  <meta name="keywords"
+    content="Aylin Llans, arte visual, poesía, escultura, escritos, artista argentina, introspección, arte contemporáneo, portafolio">
+  <meta name="author" content="Aylin Llans">
+
+  <link rel="canonical" href="https://aylinllans.github.io/">
+
+  <meta property="og:title" content="Aylin Llans | Arte Visual y Poesía Introspectiva">
+  <meta property="og:description"
+    content="Portafolio oficial de Aylin Llans. Obras de arte visual, esculturas, poesía y escritos personales.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aylinllans.github.io/">
+  <meta property="og:locale" content="es_ES">
+  <!-- Acción para ti: Crea una imagen de 1200x630px para compartir en redes -->
+  <meta property="og:image" content="https://aylinllans.github.io/assets/social-image-home.jpg">
+  <meta property="og:site_name" content="Aylin Llans">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aylin Llans | Arte Visual y Poesía Introspectiva">
+  <meta name="twitter:description"
+    content="Portafolio oficial de Aylin Llans. Obras de arte visual, esculturas, poesía y escritos personales.">
+  <meta name="twitter:image" content="https://aylinllans.github.io/assets/social-image-home.jpg">
+  <!-- === FIN: METAETIQUETAS SEO OPTIMIZADAS === -->
+
   <link rel="stylesheet" href="./styles.css">
-  <title>Aylin Llans</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
   <script src="//unpkg.com/alpinejs" defer></script>
@@ -16,22 +43,17 @@
   <div x-data="{ 
     selectedObra: null,
     activeSection: 'inicio',
-    
-    // CAMBIO: La función openDetails ahora contiene la animación de scroll suave personalizada
     openDetails(obra) {
         this.selectedObra = obra;
         this.$nextTick(() => { 
             const target = document.getElementById('obra-details-panel');
             if (!target) return;
-
             const start = window.scrollY;
-            const end = target.getBoundingClientRect().top + window.scrollY - 100; // Offset para que no quede pegado arriba
+            const end = target.getBoundingClientRect().top + window.scrollY - 100;
             const dist = end - start;
             const dur = 800;
             let startTime = null;
-
             function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
-
             function anim(timestamp) {
               if (!startTime) startTime = timestamp;
               const prog = Math.min((timestamp - startTime) / dur, 1);
@@ -43,7 +65,7 @@
     }
   }">
 
-    <!-- === INICIO: BARRA DE NAVEGACIÓN === -->
+    <!-- === BARRA DE NAVEGACIÓN (Sin cambios funcionales) === -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-3 shadow-md" x-data="{ mobileMenuOpen: false }">
       <div class="max-w-7xl mx-auto flex justify-between items-center">
         <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
@@ -53,8 +75,10 @@
           </svg>
         </button>
         <ul class="hidden md:flex space-x-6 items-center">
-          <li><a href="#inicio" :class="{ 'font-bold': activeSection === 'inicio' }" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
-          <li><a href="#obras" :class="{ 'font-bold': activeSection === 'obras' }" class="text-gray-900 hover:text-gray-500 text-md transition duration-300">Obras</a></li>
+          <li><a href="#inicio" :class="{ 'font-bold': activeSection === 'inicio' }"
+              class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
+          <li><a href="#obras" :class="{ 'font-bold': activeSection === 'obras' }"
+              class="text-gray-900 hover:text-gray-500 text-md transition duration-300">Obras</a></li>
           <li x-data="{ open: false }" class="relative">
             <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md">
               Escritos <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,10 +98,12 @@
           <li><a href="./pages/contacto.html" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
         </ul>
       </div>
-      <div x-show="mobileMenuOpen" class="md:hidden mt-2 px-4 bg-white">
+      <div x-show="mobileMenuOpen" class="md:hidden mt-2 px-4 bg-white text-gray-900 border-t border-gray-200">
         <ul class="flex flex-col space-y-2">
-          <li><a href="#inicio" @click="mobileMenuOpen = false" :class="{'font-bold': activeSection === 'inicio'}" class="block py-2 border-b border-gray-200 text-gray-900">Inicio</a></li>
-          <li><a href="#obras" @click="mobileMenuOpen = false" :class="{'font-bold': activeSection === 'obras'}" class="block py-2 border-b border-gray-200 text-gray-900">Obras</a></li>
+          <li><a href="#inicio" @click="mobileMenuOpen = false" :class="{'font-bold': activeSection === 'inicio'}"
+              class="block py-2 border-b border-gray-200 text-gray-900">Inicio</a></li>
+          <li><a href="#obras" @click="mobileMenuOpen = false" :class="{'font-bold': activeSection === 'obras'}"
+              class="block py-2 border-b border-gray-200 text-gray-900">Obras</a></li>
           <li x-data="{ open: false }" class="border-b border-gray-200">
             <button @click="open = !open" class="w-full flex justify-between items-center py-2 text-gray-900 text-left">
               <span>Escritos</span>
@@ -92,32 +118,38 @@
               <li><a href="./pages/introspecciones.html" class="block py-1 text-gray-900">Introspecciones</a></li>
             </ul>
           </li>
-          <li><a href="./pages/contacto.html" class="block py-2 border-b border-gray-200 text-gray-900">Contacto</a></li>
+          <li><a href="./pages/contacto.html" class="block py-2 border-b border-gray-200 text-gray-900">Contacto</a>
+          </li>
         </ul>
       </div>
     </nav>
-    <!-- === FIN: BARRA DE NAVEGACIÓN === -->
 
     <main class="main pt-20">
       <div x-intersect.threshold.25="activeSection = 'inicio'">
-        <h2 class="text-6xl pt-10 pl-10 text-[var(--primary-color)]">Arte y Poesía</h2>
-        <p class="px-8 mt-10 text-[var(--primary-color)] text-xl">Esa materialización de lo emocional en un algo que puede
-          ser percibido por uno o varias sentidos, incluso cuando esa emoción se camufla de idea, denuncia o juego.</p>
+        <!-- CAMBIO SEMÁNTICO CLAVE: h2 a h1 para el título principal -->
+        <h1 class="text-6xl pt-10 px-4 md:pl-10 text-center md:text-left text-[var(--primary-color)]">Arte y Poesía</h1>
+        <p class="px-4 md:px-8 mt-10 text-[var(--primary-color)] text-xl text-center md:text-left">Esa materialización
+          de lo emocional en un algo que puede ser percibido por uno o varias sentidos, incluso cuando esa emoción se
+          camufla de idea, denuncia o juego.</p>
         <section class="bg-white m-6 mt-16 p-8 pr-0 md:flex md:gap-8 rounded-lg shadow-md md:w-[90%] md:mx-auto">
           <div class="md:w-2/3">
             <div class="text-[var(--primary-color)] space-y-6 text-md md:px-20 leading-relaxed">
               <p>Aylin Llans es una autora y artista visual nacida en Ciudad de Buenos Aires, cuya obra transita los
                 pliegues más íntimos de la conciencia humana. Su universo poético está atravesado por un cuestionamiento
                 constante, el dolor existencial y la necesidad de autenticidad como anclaje en medio del absurdo.</p>
-              <p>Con una voz lírica profundamente introspectiva, Aylin teje textos que no sólo expresan, sino que exploran
-                las fisuras del ser: el desgarro de sentirse incomprendida, la angustia de existir, la belleza hallada en
+              <p>Con una voz lírica profundamente introspectiva, Aylin teje textos que no sólo expresan, sino que
+                exploran
+                las fisuras del ser: el desgarro de sentirse incomprendida, la angustia de existir, la belleza hallada
+                en
                 el instante trivial y la ternura que persiste aun en medio de la devastación. Su poesía, muchas veces
                 desgarradora, no busca complacer —busca confrontar y revelar. Cada verso es un cuerpo que respira dolor,
                 lucidez y resistencia.</p>
-              <p>En sus composiciones visuales Aylin despliega una sensibilidad que complementa su escritura: un lenguaje
+              <p>En sus composiciones visuales Aylin despliega una sensibilidad que complementa su escritura: un
+                lenguaje
                 plástico cargado de significado, donde la emoción se materializa, se observa y se honra. El arte visual,
                 como su poesía, funciona como puente entre el cuerpo, el sentir y el pensamiento simbólico.</p>
-              <p>Su estética: íntima, cruda, honesta. No hay máscaras, ni adornos innecesarios. Hay entrega. Y desde allí,
+              <p>Su estética: íntima, cruda, honesta. No hay máscaras, ni adornos innecesarios. Hay entrega. Y desde
+                allí,
                 Aylin invita al lector/espectador a reconocerse en su propia vulnerabilidad.</p>
             </div>
           </div>
@@ -175,7 +207,9 @@
           x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="flex justify-center mt-8">
           <div class="relative bg-white rounded-lg shadow-md p-8 w-[80%] max-w-4xl">
             <button @click="selectedObra = null" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-30">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
             </button>
             <div x-show="selectedObra === 'atisbo'" x-data="{
                       media: [
@@ -189,27 +223,28 @@
                       prev() { this.activeIndex = (this.activeIndex - 1 + this.media.length) % this.media.length; }
                  }">
               <h3 class="text-2xl font-bold text-[var(--secondary-color)] mb-4">Atisbo de luz</h3>
-              <p class="text-[var(--primary-color)] leading-relaxed mb-6 text-md">Atisbo de luz es una ventana a la psique
-                confinada. La oscuridad, densa y texturizada con rostros fantasmales, no es un vacío, sino un peso
-                tangible; la materia misma de la angustia y el aislamiento. De esta opresión, sin embargo, surge la
+              <p class="text-[var(--primary-color)] leading-relaxed mb-6 text-md">Atisbo de luz es una ventana a la
+                psique confinada. La oscuridad, densa y texturizada con rostros fantasmales, no es un vacío, sino un
+                peso tangible; la materia misma de la angustia y el aislamiento. De esta opresión, sin embargo, surge la
                 vida. Una grieta se abre, no por accidente, sino por la fuerza persistente de unos dedos que se aferran
-                al borde, que empujan para ver.
-                Desde una perspectiva compositiva, la obra juega magistralmente con el desequilibrio para generar
-                tensión. El peso visual se concentra en el cuadrante inferior derecho, donde la carne modelada con
-                realismo —los dedos aferrándose, el ojo vibrante— crea un punto focal ineludible. Este núcleo de vida se
-                contrapone a una vasta extensión de oscuridad, cuya textura rugosa y atormentada no es pasiva, sino que
-                actúa como un contrapeso opresivo. La línea diagonal que fractura el plano superior rompe cualquier
-                atisbo de estatismo, guiando la mirada y reforzando la narrativa de una ruptura inminente. El resultado
-                es un equilibrio precario y dinámico, donde la forma no solo ilustra el tema, sino que lo encarna.
-                Y a través de esa ruptura, una mirada que nos devuelve la pregunta. El ojo, detallado y vivo, no es
-                pasivo; nos confronta y nos obliga a cuestionar: ¿es la figura quien busca un atisbo de nuestra luz
-                exterior, o somos nosotros, los espectadores, quienes nos asomamos a la profunda intimidad de su
-                confinamiento? La obra se convierte así en un espejo. Ya no se trata solo de la lucha por emerger, sino
-                de la vulnerabilidad compartida entre quien mira y quien es mirado, difuminando la frontera entre el
-                observador y la obra hasta que no queda claro quién, en realidad, está atisbando a quién.</p>
+                al borde, que empujan para ver. Desde una perspectiva compositiva, la obra juega magistralmente con el
+                desequilibrio para generar tensión. El peso visual se concentra en el cuadrante inferior derecho, donde
+                la carne modelada con realismo —los dedos aferrándose, el ojo vibrante— crea un punto focal ineludible.
+                Este núcleo de vida se contrapone a una vasta extensión de oscuridad, cuya textura rugosa y atormentada
+                no es pasiva, sino que actúa como un contrapeso opresivo. La línea diagonal que fractura el plano
+                superior rompe cualquier atisbo de estatismo, guiando la mirada y reforzando la narrativa de una ruptura
+                inminente. El resultado es un equilibrio precario y dinámico, donde la forma no solo ilustra el tema,
+                sino que lo encarna. Y a través de esa ruptura, una mirada que nos devuelve la pregunta. El ojo,
+                detallado y vivo, no es pasivo; nos confronta y nos obliga a cuestionar: ¿es la figura quien busca un
+                atisbo de nuestra luz exterior, o somos nosotros, los espectadores, quienes nos asomamos a la profunda
+                intimidad de su confinamiento? La obra se convierte así en un espejo. Ya no se trata solo de la lucha
+                por emerger, sino de la vulnerabilidad compartida entre quien mira y quien es mirado, difuminando la
+                frontera entre el observador y la obra hasta que no queda claro quién, en realidad, está atisbando a
+                quién.</p>
               <div class="relative mb-4 bg-gray-100 rounded-lg flex justify-center items-center h-96">
                 <template x-if="media[activeIndex].type === 'image'"><img :src="media[activeIndex].src"
-                    alt="Vista principal" class="max-h-full max-w-full object-contain rounded-lg"></template>
+                    alt="Vista principal de Atisbo de Luz"
+                    class="max-h-full max-w-full object-contain rounded-lg"></template>
                 <template x-if="media[activeIndex].type === 'video'"><video :src="media[activeIndex].src" controls
                     autoplay loop muted class="max-h-full max-w-full rounded-lg"></video></template>
                 <button @click="prev()"
@@ -230,7 +265,7 @@
                   <button @click="activeIndex = index"
                     class="relative h-20 w-20 bg-gray-200 rounded-md transition-opacity"
                     :class="{'opacity-100': activeIndex === index, 'opacity-50 hover:opacity-100': activeIndex !== index}">
-                    <img :src="item.thumbnail" alt="Miniatura" class="h-full w-full object-cover rounded-md">
+                    <img :src="item.thumbnail" alt="Miniatura de galería" class="h-full w-full object-cover rounded-md">
                     <template x-if="item.type === 'video'">
                       <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30"><svg
                           class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -257,27 +292,28 @@
               <p class="text-[var(--primary-color)] leading-relaxed mb-6">Esta escultura se presenta como un ensayo
                 material sobre la autocompasión. Responde a la pregunta de su título —"¿Quién sana al niño que fue?"— no
                 con palabras, sino con una cuidada puesta en escena formal que revela una profunda verdad psicológica:
-                para reparar el pasado, es necesario actuar desde un presente ya fortalecido.
-                Desde un punto de vista compositivo, la obra se organiza en una estructura cerrada y circular, donde las
-                dos manos crean un equilibrio dinámico. El gesto envuelve sobre sí mismo, concentrando toda la tensión
-                narrativa en el acto de la sutura. La renuncia deliberada al color mimético o naturalista traslada
-                inmediatamente su discurso del plano físico al psicológico. La piel no es piel; es un mapa emocional,
-                una cartografía del ser interior. Donde ambas manos, la que sutura y la que es suturada, están
-                impregnadas de la misma paleta vibrante, con una fuerza gestual similar. Esta decisión es fundamental,
-                pues anula una narrativa simplista de "sanador" y "herido" como dos entidades separadas. En su lugar,
-                postula una psique unificada. No estamos presenciando una transferencia de fortaleza de una mano a otra,
-                sino la manifestación de una conciencia que reconoce que la herida y la resiliencia coexisten dentro del
-                mismo cuerpo, del mismo ser. La aplicación del color, casi como salpicaduras o manchas de acuarela,
-                sugiere que esta vitalidad no es una capa superficial, sino algo que emana desde adentro, orgánicamente.
-                El hilo y la aguja, por lo tanto, no operan como instrumentos de dolor, sino como el nexo donde reside
-                la paradoja central de la obra: un acto de precisión casi quirúrgica que es, a la vez, un gesto de
+                para reparar el pasado, es necesario actuar desde un presente ya fortalecido. Desde un punto de vista
+                compositivo, la obra se organiza en una estructura cerrada y circular, donde las dos manos crean un
+                equilibrio dinámico. El gesto envuelve sobre sí mismo, concentrando toda la tensión narrativa en el acto
+                de la sutura. La renuncia deliberada al color mimético o naturalista traslada inmediatamente su discurso
+                del plano físico al psicológico. La piel no es piel; es un mapa emocional, una cartografía del ser
+                interior. Donde ambas manos, la que sutura y la que es suturada, están impregnadas de la misma paleta
+                vibrante, con una fuerza gestual similar. Esta decisión es fundamental, pues anula una narrativa
+                simplista de "sanador" y "herido" como dos entidades separadas. En su lugar, postula una psique
+                unificada. No estamos presenciando una transferencia de fortaleza de una mano a otra, sino la
+                manifestación de una conciencia que reconoce que la herida y la resiliencia coexisten dentro del mismo
+                cuerpo, del mismo ser. La aplicación del color, casi como salpicaduras o manchas de acuarela, sugiere
+                que esta vitalidad no es una capa superficial, sino algo que emana desde adentro, orgánicamente. El hilo
+                y la aguja, por lo tanto, no operan como instrumentos de dolor, sino como el nexo donde reside la
+                paradoja central de la obra: un acto de precisión casi quirúrgica que es, a la vez, un gesto de
                 intimidad absoluta. La escultura argumenta así que la madurez no es la ausencia de heridas, sino la
                 capacidad de abordarlas con una mano firme y vibrante. No estamos ante un pasado reparado, sino ante el
                 retrato de un presente íntegro, que transforma la cicatriz en una firma de su propia y luminosa
                 resiliencia.</p>
               <div class="relative mb-4 bg-gray-100 rounded-lg flex justify-center items-center h-96">
                 <template x-if="media[activeIndex].type === 'image'"><img :src="media[activeIndex].src"
-                    alt="Vista principal" class="max-h-full max-w-full object-contain rounded-lg"></template>
+                    alt="Vista principal de Quien sana al niño que fue"
+                    class="max-h-full max-w-full object-contain rounded-lg"></template>
                 <template x-if="media[activeIndex].type === 'video'"><video :src="media[activeIndex].src" controls
                     autoplay loop muted class="max-h-full max-w-full rounded-lg"></video></template>
                 <button @click="prev()"
@@ -298,7 +334,7 @@
                   <button @click="activeIndex = index"
                     class="relative h-20 w-20 bg-gray-200 rounded-md transition-opacity"
                     :class="{'opacity-100': activeIndex === index, 'opacity-50 hover:opacity-100': activeIndex !== index}">
-                    <img :src="item.thumbnail" alt="Miniatura" class="h-full w-full object-cover rounded-md">
+                    <img :src="item.thumbnail" alt="Miniatura de galería" class="h-full w-full object-cover rounded-md">
                     <template x-if="item.type === 'video'">
                       <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30"><svg
                           class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -317,6 +353,67 @@
     </main>
 
   </div>
+
+  <!-- =================================================================== -->
+  <!--  CÓDIGO AÑADIDO PARA SEO: VERSIÓN ESTÁTICA DE LAS OBRAS PARA GOOGLE  -->
+  <!-- =================================================================== -->
+  <noscript>
+    <section aria-label="Descripción de Obras para buscadores">
+      <article>
+        <h3>Atisbo de luz</h3>
+        <p>Atisbo de luz es una ventana a la psique confinada. La oscuridad, densa y texturizada con rostros
+          fantasmales, no es un vacío, sino un peso tangible; la materia misma de la angustia y el aislamiento. De esta
+          opresión, sin embargo, surge la vida. Una grieta se abre, no por accidente, sino por la fuerza persistente de
+          unos dedos que se aferran al borde, que empujan para ver. Desde una perspectiva compositiva, la obra juega
+          magistralmente con el desequilibrio para generar tensión. El peso visual se concentra en el cuadrante inferior
+          derecho, donde la carne modelada con realismo —los dedos aferrándose, el ojo vibrante— crea un punto focal
+          ineludible. Este núcleo de vida se contrapone a una vasta extensión de oscuridad, cuya textura rugosa y
+          atormentada no es pasiva, sino que actúa como un contrapeso opresivo. La línea diagonal que fractura el plano
+          superior rompe cualquier atisbo de estatismo, guiando la mirada y reforzando la narrativa de una ruptura
+          inminente. El resultado es un equilibrio precario y dinámico, donde la forma no solo ilustra el tema, sino que
+          lo encarna. Y a través de esa ruptura, una mirada que nos devuelve la pregunta. El ojo, detallado y vivo, no
+          es pasivo; nos confronta y nos obliga a cuestionar: ¿es la figura quien busca un atisbo de nuestra luz
+          exterior, o somos nosotros, los espectadores, quienes nos asomamos a la profunda intimidad de su
+          confinamiento? La obra se convierte así en un espejo. Ya no se trata solo de la lucha por emerger, sino de la
+          vulnerabilidad compartida entre quien mira y quien es mirado, difuminando la frontera entre el observador y la
+          obra hasta que no queda claro quién, en realidad, está atisbando a quién.</p>
+        <div>
+          <img src="./images/atisbo-de-luz/4.png" alt="Detalle de la obra Atisbo de Luz">
+          <img src="./images/atisbo-de-luz/2.png" alt="Vista general de la obra Atisbo de Luz">
+          <img src="./images/atisbo-de-luz/3.png" alt="Otra vista de la obra Atisbo de Luz">
+          <p>(La obra también incluye un video corto disponible en la versión interactiva del sitio).</p>
+        </div>
+      </article>
+      <article>
+        <h3>Quien sana al niño que fue</h3>
+        <p>Esta escultura se presenta como un ensayo material sobre la autocompasión. Responde a la pregunta de su
+          título —"¿Quién sana al niño que fue?"— no con palabras, sino con una cuidada puesta en escena formal que
+          revela una profunda verdad psicológica: para reparar el pasado, es necesario actuar desde un presente ya
+          fortalecido. Desde un punto de vista compositivo, la obra se organiza en una estructura cerrada y circular,
+          donde las dos manos crean un equilibrio dinámico. El gesto envuelve sobre sí mismo, concentrando toda la
+          tensión narrativa en el acto de la sutura. La renuncia deliberada al color mimético o naturalista traslada
+          inmediatamente su discurso del plano físico al psicológico. La piel no es piel; es un mapa emocional, una
+          cartografía del ser interior. Donde ambas manos, la que sutura y la que es suturada, están impregnadas de la
+          misma paleta vibrante, con una fuerza gestual similar. Esta decisión es fundamental, pues anula una narrativa
+          simplista de "sanador" y "herido" como dos entidades separadas. En su lugar, postula una psique unificada. No
+          estamos presenciando una transferencia de fortaleza de una mano a otra, sino la manifestación de una
+          conciencia que reconoce que la herida y la resiliencia coexisten dentro del mismo cuerpo, del mismo ser. La
+          aplicación del color, casi como salpicaduras o manchas de acuarela, sugiere que esta vitalidad no es una capa
+          superficial, sino algo que emana desde adentro, orgánicamente. El hilo y la aguja, por lo tanto, no operan
+          como instrumentos de dolor, sino como el nexo donde reside la paradoja central de la obra: un acto de
+          precisión casi quirúrgica que es, a la vez, un gesto de intimidad absoluta. La escultura argumenta así que la
+          madurez no es la ausencia de heridas, sino la capacidad de abordarlas con una mano firme y vibrante. No
+          estamos ante un pasado reparado, sino ante el retrato de un presente íntegro, que transforma la cicatriz en
+          una firma de su propia y luminosa resiliencia.</p>
+        <div>
+          <img src="./images/quien-sana-el-nino-que-fue/1.png"
+            alt="Vista principal de la obra Quien sana al niño que fue">
+          <img src="./images/quien-sana-el-nino-que-fue/2.png" alt="Detalle de la obra Quien sana al niño que fue">
+          <p>(La obra también incluye un video corto disponible en la versión interactiva del sitio).</p>
+        </div>
+      </article>
+    </section>
+  </noscript>
 
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -342,4 +439,5 @@
   </script>
 
 </body>
+
 </html>
