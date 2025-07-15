@@ -9,7 +9,7 @@
   <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body class="bg-[var(--background-primary)]">
-  <!-- Barra de Navegación (con "Fragmentos" resaltado) -->
+    <!-- Barra de Navegación (con "Fragmentos" resaltado) -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-3 shadow-md" x-data="{ mobileMenuOpen: false }">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
@@ -18,22 +18,67 @@
         <li><a href="../index.html" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
         <li><a href="../index.html#obras" class="text-gray-900 hover:text-gray-500 text-md">Obras</a></li>
         <li x-data="{ open: false }" class="relative">
-          <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md font-bold">Escritos <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+          <!-- CAMBIO: El texto del botón ahora es "Fragmentos" -->
+          <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md font-bold">
+            Fragmentos <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
           <ul x-show="open" @click.away="open = false" x-transition class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
             <li><a href="./poemas.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Poemas</a></li>
             <li><a href="./fragmentos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">Fragmentos</a></li>
             <li><a href="./introspecciones.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Introspecciones</a></li>
           </ul>
         </li>
-        <li><a href="#" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
+        <li><a href="./contacto.html" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
       </ul>
     </div>
-    <!-- Menú móvil -->
+    
+    <!-- Menú móvil (el texto aquí ya estaba correcto) -->
+    <div x-show="mobileMenuOpen" class="md:hidden mt-2 px-4 bg-white">
+      <ul class="flex flex-col space-y-2">
+        <li><a href="../index.html" class="block py-2 border-b border-gray-200 text-gray-900">Inicio</a></li>
+        <li><a href="../index.html#obras" @click="mobileMenuOpen = false" class="block py-2 border-b border-gray-200 text-gray-900">Obras</a></li>
+        <li x-data="{ open: false }" class="border-b border-gray-200">
+          <button @click="open = !open" class="w-full flex justify-between items-center py-2 text-gray-900 text-left font-bold">
+            <span>Fragmentos</span>
+            <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <ul x-show="open" class="pl-4 mt-1 mb-2 space-y-2">
+            <li><a href="./poemas.html" class="block py-1 text-gray-900">Poemas</a></li>
+            <li><a href="./fragmentos.html" class="block py-1 text-gray-900 font-bold">Fragmentos</a></li>
+            <li><a href="./introspecciones.html" class="block py-1 text-gray-900">Introspecciones</a></li>
+          </ul>
+        </li>
+        <li><a href="./contacto.html" class="block py-2 border-b border-gray-200 text-gray-900">Contacto</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <main class="main pt-20">
-    <h1 class="text-4xl text-center font-bold text-[var(--primary-color)] mt-8">Fragmentos</h1>
-    <!-- ¡Aquí va tu contenido! -->
+  <main class="main pt-24 px-4">
+    <!-- Título de la página -->
+    <h1 class="text-4xl text-center font-bold text-[var(--primary-color)]">Fragmentos</h1>
+    
+    <!-- Espacio donde añadir tus fragmentos -->
+    <div class="mt-12 mb-16">
+        <div class="bg-white rounded-xl p-8 max-w-2xl mx-auto mb-8">
+            <p class="text-[var(--primary-color)] text-center text-lg">
+                Las despedidas no le gustaban. Sin embargo, aborrecía aún más la no-despedida de un adiós indefinido.
+            </p>
+            <!-- Firma -->
+            <div class="mt-6 text-center">
+                <p class="text-md text-[var(--secondary-color)]">-Aylin Llans</p>
+            </div>
+        </div>
+        <div class="bg-white rounded-xl p-8 max-w-2xl mx-auto mb-8">
+            <p class="text-[var(--primary-color)] text-center text-lg">
+                Aquí viene mi parte favorita: la disolución de los "Algundía" acompañada por el surgimiento nocivo de "Loquepodríahabersido".
+            </p>
+            <!-- Firma -->
+            <div class="mt-6 text-center">
+                <p class="text-md text-[var(--secondary-color)]">-Aylin Llans</p>
+            </div>
+        </div>
+        <!-- Copia y pega el bloque anterior para añadir más fragmentos -->
+    </div>
   </main>
 </body>
 </html>

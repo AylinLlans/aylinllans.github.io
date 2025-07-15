@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,32 +9,163 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="//unpkg.com/alpinejs" defer></script>
 </head>
+
 <body class="bg-[var(--background-primary)]">
   <!-- Barra de Navegación (con "Introspecciones" resaltado) -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-3 shadow-md" x-data="{ mobileMenuOpen: false }">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
-      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none text-gray-900"><svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg></button>
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none text-gray-900"><svg
+          class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg></button>
       <ul class="hidden md:flex space-x-6 items-center">
         <li><a href="../index.html" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
         <li><a href="../index.html#obras" class="text-gray-900 hover:text-gray-500 text-md">Obras</a></li>
         <li x-data="{ open: false }" class="relative">
-          <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md font-bold">Escritos <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-          <ul x-show="open" @click.away="open = false" x-transition class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+          <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md font-bold">
+            Introspecciones <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <ul x-show="open" @click.away="open = false" x-transition
+            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
             <li><a href="./poemas.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Poemas</a></li>
-            <li><a href="./fragmentos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fragmentos</a></li>
-            <li><a href="./introspecciones.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">Introspecciones</a></li>
+            <li><a href="./fragmentos.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fragmentos</a></li>
+            <li><a href="./introspecciones.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">Introspecciones</a></li>
           </ul>
         </li>
-        <li><a href="#" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
+        <li><a href="./contacto.html" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
       </ul>
     </div>
+
     <!-- Menú móvil -->
+    <div x-show="mobileMenuOpen" class="md:hidden mt-2 px-4 bg-white">
+      <ul class="flex flex-col space-y-2">
+        <li><a href="../index.html" class="block py-2 border-b border-gray-200 text-gray-900">Inicio</a></li>
+        <li><a href="../index.html#obras" @click="mobileMenuOpen = false"
+            class="block py-2 border-b border-gray-200 text-gray-900">Obras</a></li>
+        <li x-data="{ open: false }" class="border-b border-gray-200">
+          <button @click="open = !open"
+            class="w-full flex justify-between items-center py-2 text-gray-900 text-left font-bold">
+            <span>Introspecciones</span>
+            <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <ul x-show="open" class="pl-4 mt-1 mb-2 space-y-2">
+            <li><a href="./poemas.html" class="block py-1 text-gray-900">Poemas</a></li>
+            <li><a href="./fragmentos.html" class="block py-1 text-gray-900">Fragmentos</a></li>
+            <li><a href="./introspecciones.html" class="block py-1 text-gray-900 font-bold">Introspecciones</a></li>
+          </ul>
+        </li>
+        <li><a href="./contacto.html" class="block py-2 border-b border-gray-200 text-gray-900">Contacto</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <main class="main pt-20">
-    <h1 class="text-4xl text-center font-bold text-[var(--primary-color)] mt-8">Introspecciones</h1>
-    <!-- ¡Aquí va tu contenido! -->
+  <main class="main pt-24 px-4">
+    <!-- Título de la página -->
+    <h1 class="text-4xl text-center font-bold text-[var(--primary-color)]">Introspecciones</h1>
+
+    <!-- Espacio donde añadir tus introspecciones -->
+    <div class="mt-12 mb-16">
+      <!-- primer texto -->
+      <div class="bg-white rounded-xl p-8 max-w-3xl mx-auto mb-8">
+        <div class="text-[var(--primary-color)] text-justify leading-relaxed space-y-4">
+          <p>
+            La vida ante mí como un libro cuyas páginas son como cielos por los que me desplazo como un pez; o como un
+            lienzo en el que me zambullo. Espectadora y nadadora de ríos metafísicos. Oliveira y La Maga: quizás maga de
+            instantes olivéiricos en los que se hace presente el placer de saborear momentos triviales. Momentos que
+            parecieran grabarse en alguna parte intangible de mí como una gran huella dactilar espiralada. Soy todo lo
+            que hice, todo lo que me pasó, todo lo que decidí hacer con lo que me pasó e hice. Soy todo lo que hago,
+            todo lo que me pasa, todo lo que decido hacer con lo que me pasa y hago.
+            La claridad del sol a través de la ventana. El aire fresco. Mi pequeña Puffie recostada sobre mis piernas en
+            esta habitación que comparto con quien elegí para acompañarme en la vida. Te elegí y quiero seguir
+            eligiéndote, incluso los días en que no nos entendamos, aunque pudiera llegar a comunicarte lo contrario. La
+            cotidianeidad sabe tan bien si estás vos en ella... Me encanta compartir(me) con vos; el gran equipo que
+            formamos. El armonioso equilibrio entre similitud y complementariedad tanto física como emocional y en
+            intereses. No me aburriría nunca de despertar a tu lado, de que desayunemos juntos. De los momentos que
+            tienen tu mirada, tu sonrisa, tu sabor. No podría cansarme de tus caricias, de tus nalgueadas, de tus besos
+            y abrazos.
+            Te pido por sobre todas las cosas sinceridad. No me mientas, mi felpaz. No me ocultes intencionalmente nada
+            ni busques maquillarme verdades así como yo no lo haré con vos. Sabés cuándo detesto y pueden afectarme las
+            mentiras y la falsedad de una verdad incompleta.
+          </p>
+        </div>
+        <!-- Firma -->
+        <div class="mt-8 text-center">
+          <p class="text-md text-[var(--secondary-color)]">-Aylin Llans</p>
+          <p class="text-sm text-gray-400">Abril 2024</p>
+        </div>
+      </div>
+
+      <!-- segundo texto -->
+      <div class="bg-white rounded-xl p-8 max-w-3xl mx-auto mb-8">
+        <div class="text-[var(--primary-color)] text-justify leading-relaxed space-y-4">
+          <p>
+            No llego a hacerme idea de la gran cantidad de ceros que deben de haber delante de la coma y el uno que
+            representan mi persona en el mundo, o los infinitos ceros que se sumarían si me pienso en el universo ni los
+            que se restarían, si me centro en el impacto de mis acciones en otras vidas; me gustaría restar más de esos
+            ceros para bien, no porque tenga esperanza en un buen futuro, hace tiempo dejé de tenerla. La esperanza es
+            la vida misma defendiéndose decía Cortázar, yo no siento no estar viviendo por haberla perdido pero me da
+            igual vivir, lo que no me da igual es el cómo.
+            Hay tanto que no entiendo. La cantidad infinita de ceros cuando me pienso en el universo debe ser la misma
+            que precede al coma uno que representa aquello que entiendo o sé. ¿No podíamos tener un manual de
+            instrucciones claro? No me digas La Biblia que de claro no tiene nada y parece impuesta para controlar
+            gente. ¿Qué motivo llevaría al creador de todo lo que conocemos a pedir fe? ¿Fe? ¿En qué parte la fe es
+            compatible con ser libre? ¿Y si me suicidara? ¿Se me concedería dejar de existir? ¿O acaso tenemos la misma
+            libertar que aquellos soldados que debían ir obligatoriamente a la guerra y si retrocedían los mataban?
+            Creo que nunca voy a entender el porqué uno debería de estar agradecido con sus progenitores por haberle
+            dado la vida. Es asombroso saber que todo esto existe pero innecesario también. ¿Acaso le rescatan a uno por
+            traerle al mundo? ¿Traerle de dónde?
+            Diferente es agradecer por lo que a uno le brindaron, por los momentos, por los esfuerzos. Gracias, ma, y
+            gracias, pa. Los amo y perdono sus errores porque improvisaron en esta vida en la que todos estamos perdidos
+            haciendo lo que nos sale como nos sale. Gracias por el amor, por Manuelita en el cine, por el globo con las
+            últimas monedas. Hola, soy cara; Pie Pequeño; El gigante de hierro; Teletubbies; Las pistas de Blue;
+            Aventuras en pañales; La pantera rosa. Pintar; dibujar; cocinar. Clifford en mi primera feria del libro.
+            Muñecos con plastilina. Coni; el pez rojo; Tomás. Contra; Mario Bross; Galaga; Circus; Pacman. Las tardes en
+            familia. Barro. La casita del árbol, las de sábanas, la de ladrillos. Manualidades, collages. Gracias por
+            dejarme ensuciar y entenderme cuando rompía. Por brindarme una infancia llena de aventuras y creatividad.
+            Otra vez los ceros antecedidos del coma uno.
+          </p>
+        </div>
+        <!-- Firma -->
+        <div class="mt-8 text-center">
+          <p class="text-md text-[var(--secondary-color)]">-Aylin Llans</p>
+          <p class="text-sm text-gray-400">Noviembre 2021</p>
+        </div>
+      </div>
+      <!-- tercer texto -->
+      <div class="bg-white rounded-xl p-8 max-w-3xl mx-auto mb-8">
+        <div class="text-[var(--primary-color)] text-justify leading-relaxed space-y-4">
+          <p>
+            Entre paredes de un shopping. Barniz de hipocresía. Presunción de caretas. Personas que pasan una tras otra
+            en dos direcciones totalmente opuestas y no se miran. Y estoy no estando, me siento como un maniquí detrás
+            de un vidrio intangible observando el espectáculo. Todos ellos deben estar pensando, me pregunto qué, aunque
+            no quisiera decepcionarme al saberlo. Veo sus pies que salen rápidamente de mi campo visual. Podría estar
+            durante un prolongado tiempo mirando ese recorte espacial, hay tanto ahí, hay tanto en cada persona que
+            pasa... Y todas ellas están sintiendo algo ahora, y van a sentir algo después habiendo sentido algo antes y
+            así sucesivamente.
+            Pienso en la cantidad incuantificable de huellas que habrán caminado sobre este espacio, la cantidad de
+            historias, sentimientos y pensamientos que pasaron por aquí; pienso en la probabilidad de que alguna
+            persona, en algún momento, haya pisado este lugar y pensado algo similar a lo que pienso yo, o que lo esté
+            pensando en este momento en otro lugar. Pienso en las distintas realidades unidas en una y en todo aquello
+            que escapa a mi percepción.
+          </p>
+        </div>
+        <!-- Firma -->
+        <div class="mt-8 text-center">
+          <p class="text-md text-[var(--secondary-color)]">-Aylin Llans</p>
+          <p class="text-sm text-gray-400">Junio 2017</p>
+        </div>
+      </div>
+
+    </div>
   </main>
 </body>
+
 </html>
