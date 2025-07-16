@@ -112,7 +112,8 @@
       <!-- Formulario de Contacto -->
       <div>
         <h2 class="text-2xl font-bold text-center text-[var(--secondary-color)] mb-4">Envíame un comentario</h2>
-        <form action="https://formsubmit.co/aylinllans.xyz@gmail.com" method="POST" class="space-y-6">
+        <form id="contact-form" 
+        form action="https://formsubmit.co/aylinllans.xyz@gmail.com" method="POST" class="space-y-6">
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
             <input type="text" name="name" id="name" required
@@ -189,7 +190,7 @@
   <!-- El script de envío AJAX no necesita cambios, ya está correcto -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const form = document.querySelector('form[action="https://formsubmit.co/aylinllans.xyz@gmail.com"]');
+      const form = document.getElementById('contact-form');
       const statusDiv = document.getElementById('form-status');
       const submitButton = document.getElementById('submit-button');
 
