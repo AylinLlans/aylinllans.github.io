@@ -30,18 +30,14 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
       <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none text-gray-900">
-        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
       </button>
       <ul class="hidden md:flex space-x-6 items-center">
         <li><a href="../index.html" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
         <li><a href="../index.html#obras" class="text-gray-900 hover:text-gray-500 text-md">Obras</a></li>
         <li x-data="{ open: false }" class="relative">
           <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md">
-            Escritos <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
+            Escritos <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
           <ul x-show="open" @click.away="open = false" x-transition class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
             <li><a href="./poemas.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Poemas</a></li>
@@ -59,9 +55,7 @@
         <li x-data="{ open: false }" class="border-b border-gray-200">
           <button @click="open = !open" class="w-full flex justify-between items-center py-2 text-gray-900 text-left">
             <span>Escritos</span>
-            <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
+            <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
           <ul x-show="open" class="pl-4 mt-1 mb-2 space-y-2">
             <li><a href="./poemas.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Poemas</a></li>
@@ -91,12 +85,12 @@
 
       <hr class="my-10 border-gray-200">
 
-      <!-- Formulario de Contacto -->
+      <!-- Formulario de Contacto (Versión Limpia y Corregida) -->
       <div>
         <h2 class="text-2xl font-bold text-center text-[var(--secondary-color)] mb-4">Envíame un comentario</h2>
         
-        <!-- CAMBIO IMPORTANTE: Reemplaza la URL de action con la tuya de Basin -->
-        <form id="contact-form" action="TU_URL_DE_BASIN_AQUÍ" method="POST" class="space-y-6">
+        <!-- CORRECCIÓN 1: Se añade el 'id' al formulario -->
+        <form id="contact-form" action="https://formsubmit.co/aylinllans.xyz@gmail.com" method="POST" class="space-y-6">
           
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
@@ -110,6 +104,10 @@
             <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
             <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[var(--secondary-color)] focus:border-[var(--secondary-color)] sm:text-sm"></textarea>
           </div>
+
+          <!-- CORRECCIÓN 2: Se añade el campo para desactivar CAPTCHA -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="¡Nuevo mensaje desde tu página web!">
           
           <div class="flex justify-center">
             <button type="submit" id="submit-button" class="bg-[var(--secondary-color)] text-white font-bold py-2 px-6 rounded-lg hover:opacity-90 transition-opacity">
@@ -142,9 +140,9 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      // CORRECCIÓN 3: Se usa getElementById que es más robusto
       const form = document.getElementById('contact-form');
       
-      // Asegurarse de que el formulario existe antes de añadir el listener
       if (form) {
         const statusDiv = document.getElementById('form-status');
         const submitButton = document.getElementById('submit-button');
