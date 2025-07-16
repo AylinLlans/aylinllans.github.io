@@ -129,6 +129,18 @@
               class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[var(--secondary-color)] focus:border-[var(--secondary-color)] sm:text-sm"></textarea>
           </div>
 
+         <input type="hidden" name="_captcha" value="false">
+
+  <input type="hidden" name="_subject" value="¡Nuevo mensaje desde tu página web!">
+  
+  <div class="flex justify-center">
+    <button type="submit" id="submit-button" class="...">
+      Enviar Mensaje
+    </button>
+  </div>
+  <div id="form-status" class="mt-4 text-center"></div>
+</form>
+
           <!-- CAMBIO CLAVE: Se eliminan _next y _captcha para que el script AJAX funcione correctamente. -->
           <input type="hidden" name="_subject" value="¡Nuevo mensaje desde tu página web!">
           
