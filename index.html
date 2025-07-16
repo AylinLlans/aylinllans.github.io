@@ -45,9 +45,9 @@
       "name": "Aylin Llans",
       "url": "https://aylinllans.github.io/",
       "sameAs": [
-  "https://www.instagram.com/AylinLlans",
-  "https://www.facebook.com/AylinLlansC137"
-],
+        "https://www.instagram.com/AylinLlans",
+        "https://www.facebook.com/AylinLlansC137"
+      ],
       "description": "Artista visual y poeta argentina. Creadora de esculturas, obras de arte visual y escritos introspectivos que exploran la condición humana y las emociones.",
       "jobTitle": "Artista Visual y Poeta"
     }
@@ -87,7 +87,6 @@
       <div class="max-w-7xl mx-auto flex justify-between items-center">
         <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
         <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none text-gray-900">
-          <!-- SVG para que las líneas (stroke) tomen el color del botón -->
           <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M4 6h16M4 12h16M4 18h16" />
@@ -145,15 +144,14 @@
 
     <main class="main pt-20">
       <div x-intersect.threshold.25="activeSection = 'inicio'">
-        <!-- CAMBIO SEMÁNTICO CLAVE: h2 a h1 para el título principal -->
         <h1 class="text-6xl pt-10 px-4 md:pl-10 text-center md:text-left text-[var(--primary-color)]">Arte y Poesía</h1>
         <p class="px-4 md:px-8 mt-10 text-[var(--primary-color)] text-xl text-center md:text-left">Esa materialización
           de lo emocional en un algo que puede ser percibido por uno o varias sentidos, incluso cuando esa emoción se
           camufla de idea, denuncia o juego.</p>
 
-        <section class="bg-white mt-8 md:m-6 md:mt-16 p-8 md:p-8 md:pr-0 md:flex md:gap-8 rounded-lg shadow-md md:w-[90%] md:mx-auto">
+        <section
+          class="bg-white mt-8 md:m-6 md:mt-16 p-8 md:p-8 md:pr-0 md:flex md:gap-8 rounded-lg shadow-md md:w-[90%] md:mx-auto">
           <div class="md:w-2/3">
-            <!-- CAMBIO 1: Se añadió 'text-center md:text-left' para centrar el texto solo en móviles -->
             <div
               class="text-[var(--primary-color)] space-y-6 text-md md:px-20 leading-relaxed text-center md:text-left">
               <p>Aylin Llans es una autora y artista visual nacida en Ciudad de Buenos Aires, cuya obra transita los
@@ -176,7 +174,6 @@
             </div>
           </div>
           <div class="md:w-1/3 mt-8 md:mt-0 flex items-center justify-center">
-            <!-- CAMBIO 2: Se añadió 'pr-0 md:pr-16' para centrar la imagen solo en móviles -->
             <img src="./images/aylinllans.png" alt="Aylin Llans, artista visual y poeta"
               class="rounded-lg w-full max-w-xs h-auto object-cover pr-0 md:pr-16">
           </div>
@@ -234,7 +231,9 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
               </svg>
             </button>
-            <div x-show="selectedObra === 'atisbo'" x-data="{
+
+            <div x-show="selectedObra === 'atisbo'" x-data="{ 
+                      showAnalysis: false,
                       media: [
                           { type: 'image', src: './images/atisbo-de-luz/8.png', thumbnail: './images/atisbo-de-luz/8.png' },
                           { type: 'image', src: './images/atisbo-de-luz/9.png', thumbnail: './images/atisbo-de-luz/9.png' },
@@ -246,47 +245,72 @@
                       prev() { this.activeIndex = (this.activeIndex - 1 + this.media.length) % this.media.length; }
                  }">
               <h3 class="text-2xl font-bold text-[var(--secondary-color)] mb-4">Atisbo de luz</h3>
-              <p class="text-[var(--primary-color)] leading-relaxed mb-6 text-md">Atisbo de luz es una ventana a la
-                psique confinada. La oscuridad, densa y texturizada con rostros fantasmales, no es un vacío, sino un
-                peso tangible; la materia misma de la angustia y el aislamiento. De esta opresión, sin embargo, surge la
-                vida. Una grieta se abre, no por accidente, sino por la fuerza persistente de unos dedos que se aferran
-                al borde, que empujan para ver. Desde una perspectiva compositiva, la obra juega magistralmente con el
-                desequilibrio para generar tensión. El peso visual se concentra en el cuadrante inferior derecho, donde
-                la carne modelada con realismo —los dedos aferrándose, el ojo vibrante— crea un punto focal ineludible.
-                Este núcleo de vida se contrapone a una vasta extensión de oscuridad, cuya textura rugosa y atormentada
-                no es pasiva, sino que actúa como un contrapeso opresivo. La línea diagonal que fractura el plano
-                superior rompe cualquier atisbo de estatismo, guiando la mirada y reforzando la narrativa de una ruptura
-                inminente. El resultado es un equilibrio precario y dinámico, donde la forma no solo ilustra el tema,
-                sino que lo encarna. Y a través de esa ruptura, una mirada que nos devuelve la pregunta. El ojo,
-                detallado y vivo, no es pasivo; nos confronta y nos obliga a cuestionar: ¿es la figura quien busca un
-                atisbo de nuestra luz exterior, o somos nosotros, los espectadores, quienes nos asomamos a la profunda
-                intimidad de su confinamiento? La obra se convierte así en un espejo. Ya no se trata solo de la lucha
-                por emerger, sino de la vulnerabilidad compartida entre quien mira y quien es mirado, difuminando la
-                frontera entre el observador y la obra hasta que no queda claro quién, en realidad, está atisbando a
-                quién.</p>
-              <!-- INICIO: FICHA TÉCNICA -->
+
+              <!-- Texto Poético Principal -->
+              <div class="text-[var(--primary-color)] leading-relaxed mb-6 text-md prose max-w-none">
+                <p>
+                  No es una salida.<br>
+                  Es una fisura.
+                  <br><br>
+                  Desde el encierro, una presencia asoma.<br>
+                  La carne se hace borde.<br>
+                  La mirada, umbral.
+                  <br><br>
+                  No hay conquista, ni certeza.<br>
+                  Sólo un punto de tensión entre el adentro y el afuera.<br>
+                  Entre el que observa y el que es observado.
+                  <br><br>
+                  ¿Quién está dentro del marco?<br>
+                  ¿Quién atisba a quién?
+                </p>
+              </div>
+
+              <!-- Botón para mostrar el análisis -->
+              <div class="mb-6">
+                <button @click="showAnalysis = !showAnalysis"
+                  class="text-sm text-[var(--secondary-color)] hover:text-black font-semibold underline">
+                  <span x-show="!showAnalysis">Leer análisis de la obra</span>
+                  <span x-show="showAnalysis">Ocultar análisis</span>
+                </button>
+              </div>
+
+              <!-- Panel del Análisis (oculto por defecto) -->
+              <div x-show="showAnalysis" x-transition
+                class="text-[var(--primary-color)] leading-relaxed mb-6 text-md border-t pt-6 mt-6 prose max-w-none">
+                <h4 class="text-lg font-semibold text-[var(--primary-color)] mb-2">Análisis de la Obra</h4>
+                <p>Atisbo de luz es una ventana a la psique confinada. La oscuridad, densa y texturizada con rostros
+                  fantasmales, no es un vacío, sino un peso tangible; la materia misma de la angustia y el aislamiento.
+                  De esta opresión, sin embargo, surge la vida. Una grieta se abre, no por accidente, sino por la fuerza
+                  persistente de unos dedos que se aferran al borde, que empujan para ver. Desde una perspectiva
+                  compositiva, la obra juega magistralmente con el desequilibrio para generar tensión. El peso visual se
+                  concentra en el cuadrante inferior derecho, donde la carne modelada con realismo —los dedos
+                  aferrándose, el ojo vibrante— crea un punto focal ineludible. Este núcleo de vida se contrapone a una
+                  vasta extensión de oscuridad, cuya textura rugosa y atormentada no es pasiva, sino que actúa como un
+                  contrapeso opresivo. La línea diagonal que fractura el plano superior rompe cualquier atisbo de
+                  estatismo, guiando la mirada y reforzando la narrativa de una ruptura inminente. El resultado es un
+                  equilibrio precario y dinámico, donde la forma no solo ilustra el tema, sino que lo encarna. Y a
+                  través de esa ruptura, una mirada que nos devuelve la pregunta. El ojo, detallado y vivo, no es
+                  pasivo; nos confronta y nos obliga a cuestionar: ¿es la figura quien busca un atisbo de nuestra luz
+                  exterior, o somos nosotros, los espectadores, quienes nos asomamos a la profunda intimidad de su
+                  confinamiento? La obra se convierte así en un espejo. Ya no se trata solo de la lucha por emerger,
+                  sino de la vulnerabilidad compartida entre quien mira y quien es mirado, difuminando la frontera entre
+                  el observador y la obra hasta que no queda claro quién, en realidad, está atisbando a quién.</p>
+              </div>
+
+              <!-- Ficha Técnica -->
               <div class="mb-6">
                 <h4 class="text-lg font-semibold text-[var(--primary-color)] mb-2">Ficha Técnica</h4>
                 <div class="text-md text-[var(--primary-color)] space-y-2">
-                  <div class="flex">
-                    <strong class="w-28 flex-shrink-0">Técnica:</strong>
-                    <span> Técnica mixta sobre madera</span>
-                  </div>
-                  <div class="flex">
-                    <strong class="w-28 flex-shrink-0">Materiales:</strong>
-                    <span>Arcilla polimérica, acrílicos, cristal y fibra sintética</span>
-                  </div>
-                  <div class="flex">
-                    <strong class="w-28 flex-shrink-0">Dimensiones:</strong>
-                    <span>21x25 cm</span>
-                  </div>
-                  <div class="flex">
-                    <strong class="w-28 flex-shrink-0">Año:</strong>
-                    <span>2025</span>
-                  </div>
+                  <div class="flex"><strong class="w-28 flex-shrink-0">Técnica:</strong><span> Técnica mixta sobre
+                      madera</span></div>
+                  <div class="flex"><strong class="w-28 flex-shrink-0">Materiales:</strong><span>Arcilla polimérica,
+                      acrílicos, cristal y fibra sintética</span></div>
+                  <div class="flex"><strong class="w-28 flex-shrink-0">Dimensiones:</strong><span>21x25 cm</span></div>
+                  <div class="flex"><strong class="w-28 flex-shrink-0">Año:</strong><span>2025</span></div>
                 </div>
               </div>
-              <!-- FIN: FICHA TÉCNICA -->
+
+              <!-- Galería de Medios -->
               <div class="relative mb-4 bg-gray-100 rounded-lg flex justify-center items-center h-96">
                 <template x-if="media[activeIndex].type === 'image'"><img :src="media[activeIndex].src"
                     alt="Vista principal de Atisbo de Luz"
@@ -313,18 +337,20 @@
                     :class="{'opacity-100': activeIndex === index, 'opacity-50 hover:opacity-100': activeIndex !== index}">
                     <img :src="item.thumbnail" alt="Miniatura de galería" class="h-full w-full object-cover rounded-md">
                     <template x-if="item.type === 'video'">
-                      <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"
+                      <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30"><svg
+                          class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg">
                           <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
+                        </svg></div>
                     </template>
                   </button>
                 </template>
               </div>
             </div>
-            <div x-show="selectedObra === 'quien-sana'" x-data="{
+
+            <!-- === INICIO DEL CÓDIGO MODIFICADO PARA 'QUIEN SANA' === -->
+            <div x-show="selectedObra === 'quien-sana'" x-data="{ 
+                      showAnalysis: false,
                       media: [
                           { type: 'image', src: './images/quien-sana-el-nino-que-fue/1.png', thumbnail: './images/quien-sana-el-nino-que-fue/1.png' },
                           { type: 'image', src: './images/quien-sana-el-nino-que-fue/2.png', thumbnail: './images/quien-sana-el-nino-que-fue/2.png' },
@@ -336,50 +362,78 @@
                       prev() { this.activeIndex = (this.activeIndex - 1 + this.media.length) % this.media.length; }
                  }">
               <h3 class="text-2xl font-bold text-[var(--secondary-color)] mb-4">Quien sana al niño que fue</h3>
-              <p class="text-[var(--primary-color)] leading-relaxed mb-6">Esta escultura se presenta como un ensayo
-                material sobre la autocompasión. Responde a la pregunta de su título —"¿Quién sana al niño que fue?"— no
-                con palabras, sino con una cuidada puesta en escena formal que revela una profunda verdad psicológica:
-                para reparar el pasado, es necesario actuar desde un presente ya fortalecido. Desde un punto de vista
-                compositivo, la obra se organiza en una estructura cerrada y circular, donde las dos manos crean un
-                equilibrio dinámico. El gesto envuelve sobre sí mismo, concentrando toda la tensión narrativa en el acto
-                de la sutura. La renuncia deliberada al color mimético o naturalista traslada inmediatamente su discurso
-                del plano físico al psicológico. La piel no es piel; es un mapa emocional, una cartografía del ser
-                interior. Donde ambas manos, la que sutura y la que es suturada, están impregnadas de la misma paleta
-                vibrante, con una fuerza gestual similar. Esta decisión es fundamental, pues anula una narrativa
-                simplista de "sanador" y "herido" como dos entidades separadas. En su lugar, postula una psique
-                unificada. No estamos presenciando una transferencia de fortaleza de una mano a otra, sino la
-                manifestación de una conciencia que reconoce que la herida y la resiliencia coexisten dentro del mismo
-                cuerpo, del mismo ser. La aplicación del color, casi como salpicaduras o manchas de acuarela, sugiere
-                que esta vitalidad no es una capa superficial, sino algo que emana desde adentro, orgánicamente. El hilo
-                y la aguja, por lo tanto, no operan como instrumentos de dolor, sino como el nexo donde reside la
-                paradoja central de la obra: un acto de precisión casi quirúrgica que es, a la vez, un gesto de
-                intimidad absoluta. La escultura argumenta así que la madurez no es la ausencia de heridas, sino la
-                capacidad de abordarlas con una mano firme y vibrante. No estamos ante un pasado reparado, sino ante el
-                retrato de un presente íntegro, que transforma la cicatriz en una firma de su propia y luminosa
-                resiliencia.</p>
-              <!-- INICIO: FICHA TÉCNICA MOVIDA DE LUGAR -->
+
+              <!-- Texto Poético Principal -->
+              <div class="text-[var(--primary-color)] leading-relaxed mb-6 text-md prose max-w-none">
+                <p>
+                  Una mano se cose a sí misma. No con la urgencia de cerrarse, sino con la ternura de saberse viva.
+                  <br><br>
+                  En esta escena detenida, el dolor no se niega: se toca, se honra, se borda.
+                  <br><br>
+                  La piel no es piel: es mapa. Es memoria que vibra en carne simbólica.
+                  <br><br>
+                  Dos manos: una que sutura, otra que es suturada. Pero no hay división. La herida y la sanación
+                  coexisten en un solo cuerpo.
+                  <br><br>
+                  El hilo no es herramienta: es puente.<br>
+                  La aguja no perfora: revela.
+                  <br><br>
+                  Esta obra no busca tapar el pasado, sino habitar un presente completo, donde la cicatriz no borra:
+                  firma.<br>
+                  Firma la historia. Firma la resistencia. Firma una luz nacida del abismo.
+                </p>
+              </div>
+
+              <!-- Botón para mostrar el análisis -->
+              <div class="mb-6">
+                <button @click="showAnalysis = !showAnalysis"
+                  class="text-sm text-[var(--secondary-color)] hover:text-black font-semibold underline">
+                  <span x-show="!showAnalysis">Leer análisis de la obra</span>
+                  <span x-show="showAnalysis">Ocultar análisis</span>
+                </button>
+              </div>
+
+              <!-- Panel del Análisis (oculto por defecto) -->
+              <div x-show="showAnalysis" x-transition
+                class="text-[var(--primary-color)] leading-relaxed mb-6 text-md border-t pt-6 mt-6 prose max-w-none">
+                <h4 class="text-lg font-semibold text-[var(--primary-color)] mb-2">Análisis de la Obra</h4>
+                <p>Esta escultura se presenta como un ensayo material sobre la autocompasión. Responde a la pregunta de
+                  su título —"¿Quién sana al niño que fue?"— no con palabras, sino con una cuidada puesta en escena
+                  formal que revela una profunda verdad psicológica: para reparar el pasado, es necesario actuar desde
+                  un presente ya fortalecido. Desde un punto de vista compositivo, la obra se organiza en una estructura
+                  cerrada y circular, donde las dos manos crean un equilibrio dinámico. El gesto envuelve sobre sí
+                  mismo, concentrando toda la tensión narrativa en el acto de la sutura. La renuncia deliberada al color
+                  mimético o naturalista traslada inmediatamente su discurso del plano físico al psicológico. La piel no
+                  es piel; es un mapa emocional, una cartografía del ser interior. Donde ambas manos, la que sutura y la
+                  que es suturada, están impregnadas de la misma paleta vibrante, con una fuerza gestual similar. Esta
+                  decisión es fundamental, pues anula una narrativa simplista de "sanador" y "herido" como dos entidades
+                  separadas. En su lugar, postula una psique unificada. No estamos presenciando una transferencia de
+                  fortaleza de una mano a otra, sino la manifestación de una conciencia que reconoce que la herida y la
+                  resiliencia coexisten dentro del mismo cuerpo, del mismo ser. La aplicación del color, casi como
+                  salpicaduras o manchas de acuarela, sugiere que esta vitalidad no es una capa superficial, sino algo
+                  que emana desde adentro, orgánicamente. El hilo y la aguja, por lo tanto, no operan como instrumentos
+                  de dolor, sino como el nexo donde reside la paradoja central de la obra: un acto de precisión casi
+                  quirúrgica que es, a la vez, un gesto de intimidad absoluta. La escultura argumenta así que la madurez
+                  no es la ausencia de heridas, sino la capacidad de abordarlas con una mano firme y vibrante. No
+                  estamos ante un pasado reparado, sino ante el retrato de un presente íntegro, que transforma la
+                  cicatriz en una firma de su propia y luminosa resiliencia.</p>
+              </div>
+
+              <!-- Ficha Técnica -->
               <div class="mb-6">
                 <h4 class="text-lg font-semibold text-[var(--primary-color)] mb-2">Ficha Técnica</h4>
                 <div class="text-md text-[var(--primary-color)] space-y-2">
-                  <div class="flex">
-                    <strong class="w-28 flex-shrink-0">Técnica:</strong>
-                    <span>Escultura mixta policromada</span>
+                  <div class="flex"><strong class="w-28 flex-shrink-0">Técnica:</strong><span>Escultura mixta
+                      policromada</span></div>
+                  <div class="flex"><strong class="w-28 flex-shrink-0">Materiales:</strong><span>Arcilla polimérica,
+                      acrílicos, barniz, papel, aguja e hilo</span></div>
+                  <div class="flex"><strong class="w-28 flex-shrink-0">Dimensiones:</strong><span>21x21x8 cm</span>
                   </div>
-                  <div class="flex">
-                    <strong class="w-28 flex-shrink-0">Materiales:</strong>
-                    <span>Arcilla polimérica, acrílicos, barniz, papel, aguja e hilo</span>
-                  </div>
-                  <div class="flex">
-                    <strong class="w-28 flex-shrink-0">Dimensiones:</strong>
-                    <span>21x21x8 cm</span>
-                  </div>
-                  <div class="flex">
-                    <strong class="w-28 flex-shrink-0">Año:</strong>
-                    <span>2025</span>
-                  </div>
+                  <div class="flex"><strong class="w-28 flex-shrink-0">Año:</strong><span>2025</span></div>
                 </div>
               </div>
-              <!-- FIN: FICHA TÉCNICA -->
+
+              <!-- Galería de Medios -->
               <div class="relative mb-4 bg-gray-100 rounded-lg flex justify-center items-center h-96">
                 <template x-if="media[activeIndex].type === 'image'"><img :src="media[activeIndex].src"
                     alt="Vista principal de Quien sana al niño que fue"
@@ -406,17 +460,17 @@
                     :class="{'opacity-100': activeIndex === index, 'opacity-50 hover:opacity-100': activeIndex !== index}">
                     <img :src="item.thumbnail" alt="Miniatura de galería" class="h-full w-full object-cover rounded-md">
                     <template x-if="item.type === 'video'">
-                      <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"
+                      <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30"><svg
+                          class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg">
                           <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
+                        </svg></div>
                     </template>
                   </button>
                 </template>
               </div>
             </div>
+            <!-- === FIN DEL CÓDIGO MODIFICADO === -->
           </div>
         </div>
       </section>
@@ -429,33 +483,35 @@
   <!-- =================================================================== -->
   <noscript>
     <section aria-label="Descripción de Obras para buscadores">
-      <article>
+            <article>
         <h3>Atisbo de luz</h3>
-        <p>Atisbo de luz es una ventana a la psique confinada. La oscuridad, densa y texturizada con rostros
-          fantasmales, no es un vacío, sino un peso tangible; la materia misma de la angustia y el aislamiento. De esta
-          opresión, sin embargo, surge la vida. Una grieta se abre, no por accidente, sino por la fuerza persistente de
-          unos dedos que se aferran al borde, que empujan para ver. Desde una perspectiva compositiva, la obra juega
-          magistralmente con el desequilibrio para generar tensión. El peso visual se concentra en el cuadrante inferior
-          derecho, donde la carne modelada con realismo —los dedos aferrándose, el ojo vibrante— crea un punto focal
-          ineludible. Este núcleo de vida se contrapone a una vasta extensión de oscuridad, cuya textura rugosa y
-          atormentada no es pasiva, sino que actúa como un contrapeso opresivo. La línea diagonal que fractura el plano
-          superior rompe cualquier atisbo de estatismo, guiando la mirada y reforzando la narrativa de una ruptura
-          inminente. El resultado es un equilibrio precario y dinámico, donde la forma no solo ilustra el tema, sino que
-          lo encarna. Y a través de esa ruptura, una mirada que nos devuelve la pregunta. El ojo, detallado y vivo, no
-          es pasivo; nos confronta y nos obliga a cuestionar: ¿es la figura quien busca un atisbo de nuestra luz
-          exterior, o somos nosotros, los espectadores, quienes nos asomamos a la profunda intimidad de su
-          confinamiento? La obra se convierte así en un espejo. Ya no se trata solo de la lucha por emerger, sino de la
-          vulnerabilidad compartida entre quien mira y quien es mirado, difuminando la frontera entre el observador y la
-          obra hasta que no queda claro quién, en realidad, está atisbando a quién.</p>
-        <!-- INICIO: FICHA TÉCNICA PARA NOSCRIPT -->
+
+        <!-- Texto Poético para Google -->
+        <p>
+          No es una salida.<br>
+          Es una fisura.<br><br>
+          Desde el encierro, una presencia asoma.<br>
+          La carne se hace borde.<br>
+          La mirada, umbral.<br><br>
+          No hay conquista, ni certeza.<br>
+          Sólo un punto de tensión entre el adentro y el afuera.<br>
+          Entre el que observa y el que es observado.<br><br>
+          ¿Quién está dentro del marco?<br>
+          ¿Quién atisba a quién?
+        </p>
+
+        <!-- Texto Analítico para Google -->
+        <h4>Análisis de la Obra</h4>
+        <p>Atisbo de luz es una ventana a la psique confinada. La oscuridad, densa y texturizada con rostros fantasmales, no es un vacío, sino un peso tangible; la materia misma de la angustia y el aislamiento. De esta opresión, sin embargo, surge la vida. Una grieta se abre, no por accidente, sino por la fuerza persistente de unos dedos que se aferran al borde, que empujan para ver. Desde una perspectiva compositiva, la obra juega magistralmente con el desequilibrio para generar tensión. El peso visual se concentra en el cuadrante inferior derecho, donde la carne modelada con realismo —los dedos aferrándose, el ojo vibrante— crea un punto focal ineludible. Este núcleo de vida se contrapone a una vasta extensión de oscuridad, cuya textura rugosa y atormentada no es pasiva, sino que actúa como un contrapeso opresivo. La línea diagonal que fractura el plano superior rompe cualquier atisbo de estatismo, guiando la mirada y reforzando la narrativa de una ruptura inminente. El resultado es un equilibrio precario y dinámico, donde la forma no solo ilustra el tema, sino que lo encarna. Y a través de esa ruptura, una mirada que nos devuelve la pregunta. El ojo, detallado y vivo, no es pasivo; nos confronta y nos obliga a cuestionar: ¿es la figura quien busca un atisbo de nuestra luz exterior, o somos nosotros, los espectadores, quienes nos asomamos a la profunda intimidad de su confinamiento? La obra se convierte así en un espejo. Ya no se trata solo de la lucha por emerger, sino de la vulnerabilidad compartida entre quien mira y quien es mirado, difuminando la frontera entre el observador y la obra hasta que no queda claro quién, en realidad, está atisbando a quién.</p>
+        
         <h4>Ficha Técnica</h4>
         <ul>
-          <li><strong>Técnica:</strong> Mixta (escultura y pintura)</li>
-          <li><strong>Materiales:</strong> Porcelana fría, yeso, acrílicos</li>
-          <li><strong>Dimensiones:</strong> 40x40x20 cm</li>
-          <li><strong>Año:</strong> 2024</li>
+          <li><strong>Técnica:</strong> Técnica mixta sobre madera</li>
+          <li><strong>Materiales:</strong> Arcilla polimérica, acrílicos, cristal y fibra sintética</li>
+          <li><strong>Dimensiones:</strong> 21x25 cm</li>
+          <li><strong>Año:</strong> 2025</li>
         </ul>
-        <!-- FIN: FICHA TÉCNICA PARA NOSCRIPT -->
+        
         <div>
           <img src="./images/atisbo-de-luz/8.png" alt="Detalle de la obra Atisbo de Luz">
           <img src="./images/atisbo-de-luz/9.png" alt="Vista general de la obra Atisbo de Luz">
@@ -463,8 +519,20 @@
           <p>(La obra también incluye un video corto disponible en la versión interactiva del sitio).</p>
         </div>
       </article>
+      
       <article>
         <h3>Quien sana al niño que fue</h3>
+
+        <!-- Texto Poético para Google -->
+        <p>Una mano se cose a sí misma. No con la urgencia de cerrarse, sino con la ternura de saberse viva. En esta
+          escena detenida, el dolor no se niega: se toca, se honra, se borda. La piel no es piel: es mapa. Es memoria
+          que vibra en carne simbólica. Dos manos: una que sutura, otra que es suturada. Pero no hay división. La herida
+          y la sanación coexisten en un solo cuerpo. El hilo no es herramienta: es puente. La aguja no perfora: revela.
+          Esta obra no busca tapar el pasado, sino habitar un presente completo, donde la cicatriz no borra: firma.
+          Firma la historia. Firma la resistencia. Firma una luz nacida del abismo.</p>
+
+        <!-- Texto Analítico para Google -->
+        <h4>Análisis de la Obra</h4>
         <p>Esta escultura se presenta como un ensayo material sobre la autocompasión. Responde a la pregunta de su
           título —"¿Quién sana al niño que fue?"— no con palabras, sino con una cuidada puesta en escena formal que
           revela una profunda verdad psicológica: para reparar el pasado, es necesario actuar desde un presente ya
@@ -484,15 +552,15 @@
           madurez no es la ausencia de heridas, sino la capacidad de abordarlas con una mano firme y vibrante. No
           estamos ante un pasado reparado, sino ante el retrato de un presente íntegro, que transforma la cicatriz en
           una firma de su propia y luminosa resiliencia.</p>
-        <!-- INICIO: FICHA TÉCNICA PARA NOSCRIPT -->
+
         <h4>Ficha Técnica</h4>
         <ul>
-          <li><strong>Técnica:</strong> Escultura policromada</li>
-          <li><strong>Materiales:</strong> Porcelana fría, acrílicos</li>
-          <li><strong>Dimensiones:</strong> 25x30x25 cm</li>
-          <li><strong>Año:</strong> 2023</li>
+          <li><strong>Técnica:</strong> Escultura mixta policromada</li>
+          <li><strong>Materiales:</strong> Arcilla polimérica, acrílicos, barniz, papel, aguja e hilo</li>
+          <li><strong>Dimensiones:</strong> 21x21x8 cm</li>
+          <li><strong>Año:</strong> 2025</li>
         </ul>
-        <!-- FIN: FICHA TÉCNICA PARA NOSCRIPT -->
+
         <div>
           <img src="./images/quien-sana-el-nino-que-fue/1.png"
             alt="Vista principal de la obra Quien sana al niño que fue">
