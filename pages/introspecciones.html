@@ -4,13 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <!-- Título y Descripción Optimizados -->
   <title>Introspecciones y Reflexiones | Aylin Llans - Prosa Poética</title>
-  <meta name="description" content="Explora las introspecciones de Aylin Llans: escritos personales, prosa poética y reflexiones sobre la vida, el universo y las emociones.">
-  
+  <meta name="description"
+    content="Explora las introspecciones de Aylin Llans: escritos personales, prosa poética y reflexiones sobre la vida, el universo y las emociones.">
+
   <!-- Palabras Clave y Autor -->
-  <meta name="keywords" content="introspecciones, reflexiones, prosa poética, Aylin Llans, pensamientos, escritos, filosofía, emociones, vida">
+  <meta name="keywords"
+    content="introspecciones, reflexiones, prosa poética, Aylin Llans, pensamientos, escritos, filosofía, emociones, vida">
   <meta name="author" content="Aylin Llans">
 
   <!-- URL Canónica -->
@@ -18,7 +20,8 @@
 
   <!-- Metadatos para Redes Sociales (Open Graph) -->
   <meta property="og:title" content="Introspecciones y Reflexiones | Aylin Llans">
-  <meta property="og:description" content="Escritos personales, prosa poética y reflexiones sobre la vida, el universo y las emociones.">
+  <meta property="og:description"
+    content="Escritos personales, prosa poética y reflexiones sobre la vida, el universo y las emociones.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aylinllans.github.io/pages/introspecciones.html">
   <meta property="og:locale" content="es_ES">
@@ -29,9 +32,10 @@
   <!-- Metadatos para Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Introspecciones y Reflexiones | Aylin Llans">
-  <meta name="twitter:description" content="Escritos personales, prosa poética y reflexiones sobre la vida, el universo y las emociones.">
+  <meta name="twitter:description"
+    content="Escritos personales, prosa poética y reflexiones sobre la vida, el universo y las emociones.">
   <meta name="twitter:image" content="https://aylinllans.github.io/assets/social-image-introspecciones.jpg">
-  
+
   <!-- Estilos y Scripts (sin cambios) -->
   <link rel="stylesheet" href="../styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -43,10 +47,13 @@
   <nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-3 shadow-md" x-data="{ mobileMenuOpen: false }">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
-      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none text-gray-900"><svg
-          class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-          <path d="M4 6h16M4 12h16M4 18h16" />
-        </svg></button>
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none text-gray-900">
+        <!-- SVG para que las líneas (stroke) tomen el color del botón -->
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
       <ul class="hidden md:flex space-x-6 items-center">
         <li><a href="../index.html" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
         <li><a href="../index.html#obras" class="text-gray-900 hover:text-gray-500 text-md">Obras</a></li>
@@ -97,7 +104,7 @@
     <h1 class="text-4xl text-center font-bold text-[var(--primary-color)]">Introspecciones</h1>
 
     <div class="mt-12 mb-16">
-      
+
       <!-- ============================================================= -->
       <!-- CAMBIO SEMÁNTICO: El div ahora es un <article> y la firma un <footer> -->
       <!-- ============================================================= -->

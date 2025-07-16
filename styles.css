@@ -55,4 +55,10 @@ body {
     display: flex;
   }
 }
+
+/* Oculta la marca "by Weglot" del selector de idiomas */
+.wg-brand {
+  display: none !important;
+}
+
 /* ==================== FIN: styles.css ==================== */
