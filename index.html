@@ -55,7 +55,38 @@
   <!-- === FIN: DATOS ESTRUCTURADOS === -->
 </head>
 
-<body id="inicio" class="bg-[var(--background-primary)]">
+<body id="inicio" class="bg-[var(--background-primary)]" 
+      x-data="{
+          isDarkMode: false,
+          toggle() {
+              this.isDarkMode = !this.isDarkMode;
+              localStorage.setItem('darkMode', this.isDarkMode);
+              document.documentElement.classList.toggle('dark', this.isDarkMode);
+          },
+          init() {
+              const savedMode = localStorage.getItem('darkMode');
+              if (savedMode !== null) {
+                  this.isDarkMode = savedMode === 'true';
+              } else {
+                  this.isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+              }
+              document.documentElement.classList.toggle('dark', this.isDarkMode);
+          }
+      }"
+      x-init="init()">
+<body ...>
+  <!-- Script anti-flash para el tema oscuro -->
+  <script>
+    if (localStorage.getItem('darkMode') === 'true' || 
+       (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+  <div x-data="{...}">
+  ...
 
   <div x-data="{ 
     selectedObra: null,
@@ -114,8 +145,23 @@
             </ul>
           </li>
           <li><a href="./pages/contacto.html" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
-        </ul>
-      </div>
+          <!-- === BOTÓN TEMA OSCURO === -->
+
+          <li>
+            <button @click="toggle()" class="flex items-center text-gray-900 hover:text-gray-500">
+              <!-- Ícono de Sol (Modo Claro) -->
+               <svg x-show="!isDarkMode" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+              </svg>
+              <!-- Ícono de Luna (Modo Oscuro) -->
+              <svg x-show="isDarkMode" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
+          </li>
+      <!-- === FIN: BOTÓN TEMA OSCURO === -->
+
+    </ul>
+  </div>
+  <!-- Menú móvil ... -->
       <div x-show="mobileMenuOpen" class="md:hidden mt-2 px-4 bg-white text-gray-900 border-t border-gray-200">
         <ul class="flex flex-col space-y-2">
           <li><a href="#inicio" @click="mobileMenuOpen = false" :class="{'font-bold': activeSection === 'inicio'}"

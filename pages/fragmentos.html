@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Título y Descripción (¡Ya estaban muy bien!) -->
+  <!-- Título y Descripción -->
   <title>Fragmentos | Aylin Llans - Reflexiones y Literatura Breve</title>
   <meta name="description"
     content="Fragmentos originales de Aylin Llans: reflexiones, literatura breve y pensamientos para inspirar y emocionar.">
@@ -15,81 +15,98 @@
     content="fragmentos, literatura breve, reflexiones, Aylin Llans, pensamientos, arte, emociones, poesía">
   <meta name="author" content="Aylin Llans">
 
-  <!-- URL Canónica (CORREGIDO): Apunta a la URL real de tu sitio en GitHub Pages -->
+  <!-- URL Canónica -->
   <link rel="canonical" href="https://aylinllans.github.io/pages/fragmentos.html">
 
-  <!-- Metadatos para Redes Sociales (Open Graph - MEJORADO) -->
+  <!-- Metadatos para Redes Sociales (Open Graph) -->
   <meta property="og:title" content="Fragmentos | Aylin Llans - Reflexiones y Literatura Breve">
   <meta property="og:description"
     content="Fragmentos originales de Aylin Llans: reflexiones, literatura breve y pensamientos para inspirar y emocionar.">
   <meta property="og:type" content="website">
-  <!-- CORREGIDO: Apunta a la URL real de tu sitio -->
   <meta property="og:url" content="https://aylinllans.github.io/pages/fragmentos.html">
   <meta property="og:locale" content="es_ES">
-  <!-- AÑADIDO: Imagen para compartir en redes. ¡Muy importante! -->
-  <!-- Debes crear una imagen (ej. 1200x630px) y subirla a tu proyecto en una carpeta, por ejemplo, /assets/social-image.jpg -->
-  <meta property="og:image" content="https://aylinllans.github.io/assets/social-image.jpg">
+  <meta property="og:image" content="https://aylinllans.github.io/assets/social-image-fragmentos.jpg">
   <meta property="og:site_name" content="Aylin Llans">
 
-  <!-- AÑADIDO: Metadatos para Twitter Cards (para que se vea bien en Twitter) -->
+  <!-- Metadatos para Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fragmentos | Aylin Llans - Reflexiones y Literatura Breve">
   <meta name="twitter:description"
     content="Fragmentos originales de Aylin Llans: reflexiones, literatura breve y pensamientos para inspirar y emocionar.">
-  <!-- Asegúrate de que esta imagen exista en tu proyecto -->
-  <meta name="twitter:image" content="https://aylinllans.github.io/assets/social-image.jpg">
+  <meta name="twitter:image" content="https://aylinllans.github.io/assets/social-image-fragmentos.jpg">
 
-  <!-- Estilos y Scripts (Sin cambios) -->
+  <!-- Estilos y Scripts -->
   <link rel="stylesheet" href="../styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
-<body class="bg-[var(--background-primary)]">
-  <!-- Barra de Navegación (Sin cambios) -->
+<body class="bg-[var(--background-primary)]" 
+      x-data="{
+          isDarkMode: false,
+          toggle() {
+              this.isDarkMode = !this.isDarkMode;
+              localStorage.setItem('darkMode', this.isDarkMode);
+              document.documentElement.classList.toggle('dark', this.isDarkMode);
+          },
+          init() {
+              const savedMode = localStorage.getItem('darkMode');
+              if (savedMode !== null) {
+                  this.isDarkMode = savedMode === 'true';
+              } else {
+                  this.isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+              }
+              document.documentElement.classList.toggle('dark', this.isDarkMode);
+          }
+      }"
+      x-init="init()">
+
+  <!-- Script anti-flash para el tema oscuro -->
+  <script>
+    if (localStorage.getItem('darkMode') === 'true' || 
+       (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+  <!-- Barra de Navegación -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-3 shadow-md" x-data="{ mobileMenuOpen: false }">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
       <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none text-gray-900">
-        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
       </button>
       <ul class="hidden md:flex space-x-6 items-center">
         <li><a href="../index.html" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
         <li><a href="../index.html#obras" class="text-gray-900 hover:text-gray-500 text-md">Obras</a></li>
         <li x-data="{ open: false }" class="relative">
           <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md font-bold">
-            Fragmentos <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
+            Escritos <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          <ul x-show="open" @click.away="open = false" x-transition
-            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+          <ul x-show="open" @click.away="open = false" x-transition class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
             <li><a href="./poemas.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Poemas</a></li>
-            <li><a href="./fragmentos.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">Fragmentos</a></li>
-            <li><a href="./introspecciones.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Introspecciones</a></li>
+            <li><a href="./fragmentos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">Fragmentos</a></li>
+            <li><a href="./introspecciones.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Introspecciones</a></li>
           </ul>
         </li>
         <li><a href="./contacto.html" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
+        <li>
+            <button @click="toggle()" class="flex items-center text-gray-900 hover:text-gray-500 p-2">
+              <svg x-show="!isDarkMode" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" /></svg>
+              <svg x-show="isDarkMode" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+            </button>
+        </li>
       </ul>
     </div>
     <div x-show="mobileMenuOpen" class="md:hidden mt-2 px-4 bg-white text-gray-900 border-t border-gray-200">
       <ul class="flex flex-col space-y-2">
         <li><a href="../index.html" class="block py-2 border-b border-gray-200 text-gray-900">Inicio</a></li>
-        <li><a href="../index.html#obras" @click="mobileMenuOpen = false"
-            class="block py-2 border-b border-gray-200 text-gray-900">Obras</a></li>
+        <li><a href="../index.html#obras" @click="mobileMenuOpen = false" class="block py-2 border-b border-gray-200 text-gray-900">Obras</a></li>
         <li x-data="{ open: false }" class="border-b border-gray-200">
-          <button @click="open = !open"
-            class="w-full flex justify-between items-center py-2 text-gray-900 text-left font-bold">
-            <span>Fragmentos</span>
-            <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
+          <button @click="open = !open" class="w-full flex justify-between items-center py-2 text-gray-900 text-left font-bold">
+            <span>Escritos</span><svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
           <ul x-show="open" class="pl-4 mt-1 mb-2 space-y-2">
             <li><a href="./poemas.html" class="block py-1 text-gray-900">Poemas</a></li>
@@ -98,18 +115,17 @@
           </ul>
         </li>
         <li><a href="./contacto.html" class="block py-2 border-b border-gray-200 text-gray-900">Contacto</a></li>
+        <li class="flex justify-center py-4">
+            <button @click="toggle()" class="flex items-center text-gray-900"><svg x-show="!isDarkMode" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" /></svg><svg x-show="isDarkMode" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg></button>
+        </li>
       </ul>
     </div>
   </nav>
 
   <main class="main pt-24 px-4">
-    <!-- Título de la página (Sin cambios) -->
     <h1 class="text-4xl text-center font-bold text-[var(--primary-color)]">Fragmentos</h1>
 
-    <!-- MEJORA SEMÁNTICA: Cada fragmento es ahora un <article> con una <blockquote> -->
-    <!-- Esto no cambia el diseño, pero le da mucho más significado para los buscadores. -->
     <div class="mt-12 mb-16">
-      <!-- Fragmento 1 -->
       <article class="bg-white rounded-xl p-8 max-w-2xl mx-auto mb-8">
         <blockquote class="text-center">
           <p class="text-[var(--primary-color)] text-lg">
@@ -121,7 +137,6 @@
         </blockquote>
       </article>
 
-      <!-- Fragmento 2 -->
       <article class="bg-white rounded-xl p-8 max-w-2xl mx-auto mb-8">
         <blockquote class="text-center">
           <p class="text-[var(--primary-color)] text-lg">
@@ -133,8 +148,7 @@
           </footer>
         </blockquote>
       </article>
-
-      <!-- Para añadir más fragmentos, solo copia y pega una de las etiquetas <article> completas -->
+      
     </div>
   </main>
 </body>
