@@ -82,19 +82,22 @@
       <ul class="hidden md:flex space-x-6 items-center">
         <li><a href="../index.html" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
         <li><a href="../index.html#obras" class="text-gray-900 hover:text-gray-500 text-md">Obras</a></li>
-        <li x-data="{ open: false }" class="relative">
-          <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md font-bold">
-            Escritos <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <ul x-show="open" @click.away="open = false" x-transition
-            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
-            <li><a href="./poemas.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Poemas</a></li>
-            <li><a href="./fragmentos.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">Fragmentos</a></li>
-            <li><a href="./introspecciones.html"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Introspecciones</a></li>
+
+         <li x-data="{ open: false, label: 'Escritos' }" x-init="const path = window.location.pathname; if (path.includes('poemas')) { label = 'Poemas' } else if (path.includes('fragmentos')) { label = 'Fragmentos' } else if (path.includes('introspecciones')) { label = 'Introspecciones' }" class="relative">
+            <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md font-bold">
+    <span x-text="label"></span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <ul x-show="open" @click.away="open = false" x-transition
+              class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+              <li><a href="./poemas.html"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">Poemas</a></li>
+              <li><a href="./fragmentos.html"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fragmentos</a></li>
+              <li><a href="./introspecciones.html"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Introspecciones</a></li>
+
           </ul>
         </li>
         <li><a href="./contacto.html" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
