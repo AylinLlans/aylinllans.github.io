@@ -164,20 +164,20 @@
   <!-- Menú móvil ... -->
     <div x-show="mobileMenuOpen" class="md:hidden mt-2 px-4 bg-white text-gray-900 border-t border-gray-200">
       <ul class="flex flex-col space-y-2">
-        <li><a href="../index.html" class="block py-2 border-b border-gray-200 text-gray-900">Inicio</a></li>
-        <li><a href="../index.html#obras" @click="mobileMenuOpen = false" class="block py-2 border-b border-gray-200 text-gray-900">Obras</a></li>
+        <li><a href="./index.html" class="block py-2 border-b border-gray-200 text-gray-900">Inicio</a></li>
+        <li><a href="./index.html#obras" @click="mobileMenuOpen = false" class="block py-2 border-b border-gray-200 text-gray-900">Obras</a></li>
         <li x-data="{ open: false }" class="border-b border-gray-200">
           <button @click="open = !open" class="w-full flex justify-between items-center py-2 text-gray-900 text-left">
             <span>Escritos</span>
             <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
           <ul x-show="open" class="pl-4 mt-1 mb-2 space-y-2">
-            <li><a href="./poemas.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Poemas</a></li>
-            <li><a href="./fragmentos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fragmentos</a></li>
-            <li><a href="./introspecciones.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Introspecciones</a></li>
+            <li><a href="./pages/poemas.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Poemas</a></li>
+            <li><a href="./pages/fragmentos.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fragmentos</a></li>
+            <li><a href="./pages/introspecciones.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Introspecciones</a></li>
           </ul>
         </li>
-        <li><a href="./contacto.html" class="block py-2 border-b border-gray-200 text-gray-900 font-bold">Contacto</a></li>
+        <li><a href="./pages/contacto.html" class="block py-2 border-b border-gray-200 text-gray-900 font-bold">Contacto</a></li>
         
         <!-- === INICIO: CÓDIGO AÑADIDO === -->
         <li class="flex justify-center py-4">
