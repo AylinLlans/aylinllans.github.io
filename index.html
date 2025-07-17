@@ -53,6 +53,49 @@
     }
     </script>
   <!-- === FIN: DATOS ESTRUCTURADOS === -->
+
+  <!-- === INICIO: SOLUCIÓN PARA EL PANEL DE DETALLES DE OBRA === -->
+<style>
+  
+  /* 1. Cambia el fondo del panel a oscuro */
+  html.dark #obra-details-panel > .relative {
+    background-color: #1f2937; /* Corresponde a 'bg-gray-800' de Tailwind */
+  }
+
+  /* 2. Aclara el color de los títulos y textos principales */
+  html.dark #obra-details-panel h3,
+  html.dark #obra-details-panel h4,
+  html.dark #obra-details-panel strong {
+    color: #f9fafb; /* Corresponde a 'text-gray-50' */
+  }
+
+  html.dark #obra-details-panel .text-\[var\(--primary-color)\] {
+    color: #d1d5db; /* Corresponde a 'text-gray-300' */
+  }
+
+  /* 3. (La solución principal) Aclara el texto "Leer análisis de la obra" */
+  html.dark #obra-details-panel button.underline {
+    color: #60a5fa; /* Un azul claro, 'text-blue-400' */
+  }
+  html.dark #obra-details-panel button.underline:hover {
+    color: #93c5fd; /* Un azul más claro para el hover, 'text-blue-300' */
+  }
+
+  /* 4. Aclara el borde que separa el análisis */
+  html.dark #obra-details-panel div[x-show="showAnalysis"] {
+    border-top-color: #4b5563; /* Corresponde a 'border-gray-600' */
+  }
+  
+  /* 5. Aclara el botón de cerrar (X) */
+  html.dark #obra-details-panel .absolute.top-4.right-4 {
+    color: #9ca3af; /* Corresponde a 'text-gray-400' */
+  }
+  html.dark #obra-details-panel .absolute.top-4.right-4:hover {
+    color: white;
+  }
+</style>
+<!-- === FIN: SOLUCIÓN PANEL DE DETALLES DE OBRA === -->
+
 </head>
 
 <body id="inicio" class="bg-[var(--background-primary)]" x-data="{
@@ -251,8 +294,8 @@
                   <p>Su estética: íntima, cruda, honesta. No hay máscaras, ni adornos innecesarios. Hay entrega. Y desde
                     allí,
                     Aylin invita al lector/espectador a reconocerse en su propia vulnerabilidad".</p>
-                  <p>Esta biografía no la escribí yo; quizás debería haberlo hecho pero funciona. Me cuesta hablar de
-                    mí, para eso está todo lo demás...</p>
+                  <p><i>Esta biografía no la escribí yo; quizás debería haberlo hecho pero funciona. Me cuesta hablar de
+                    mí, para eso está todo lo demás...</i></p>
                 </div>
               </div>
               <div class="md:w-1/3 mt-8 md:mt-0 flex items-center justify-center">
@@ -741,3 +784,7 @@
   </body>
 
 </html>
+
+      <!-- ========================================================================================= -->
+      <!--  ESTE CÓDIGO ESTÁ REPLETO DE MALAS PRÁCTICAS PERO FUNCIONA. SI NO TE GUSTA NO LO MIRES 😎 -->
+      <!-- ========================================================================================= -->
