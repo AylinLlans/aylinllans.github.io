@@ -147,9 +147,24 @@
           <p>¡Tanto me pesan las horas de cada bendito día!<br>¡Oh yo, babosa en mundo de sal!<br>¡Oh yo, que no me puedo rendir!</p>
         </div>` },
       'pi-11': { 
-        title: 'π¹¹', 
+        title: 'π¹¹',
+        date: 'Febrero 2018 -versión modificada-', 
         content: `<div class='text-[var(--primary-color)] text-center space-y-4 text-lg'>
-          <p>Este poema ha sido omitido a propósito.<br>Porque el silencio también forma parte del lenguaje.</p>
+           <p>Me cautiva sentir<br>el viento acariciar mi piel.</p>
+            <p>Lo intento,<br>te juro que lo intento.<br>Busco refugio en el verde terco de una hoja,<br>en la espalda
+              de mármol de una estatua,<br>en el olor a página vieja,<br>en un sorbo de café.<br>El azul se derrama
+              sobre el horizonte.</p>
+            <p>Lo intento.<br>Te juro que lo intento.</p>
+            <p>Pero veo la ceniza donde hubo bosque,<br>y el eco de un martillo me desgarra el pecho.<br>Este ciclo de
+              ser para ya no ser<br>es como una flor que se ofrece al polvo.<br>El absurdo, con su boca desdentada, se
+              ríe de mí.</p>
+            <p>Aún así, lo intento.<br>Sujeto metas<br>y guardo un mapa de mañanas en el bolsillo,<br>incluso cuando el
+              absurdo<br>me deja tirada en el suelo,<br>pero termino moviéndome a través<br>de metas hechas de
+              niebla,<br>tan sólo para no hundirme en la quietud.</p>
+            <p>Y lloro;<br>(más seguido de lo que quisiera)<br>desde lo profundo del corazón,<br>lloro un grito mudo
+              frente al espejo<br>Luego sonrío y seco mis lágrimas,<br>pongo música y bailo, <br>bailo hasta borrar los
+              bordes de mi cuerpo.<br>No quiero ser quien se queda sumida en lágrimas.<br>Quiero ser la que actúa, la
+              que enciende y no apaga.</p>
         </div>` },
       'pi-12': { 
         title: 'π¹²', 
@@ -241,9 +256,12 @@
           <li><a href="../index.html" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
           <li><a href="../index.html#obras" class="text-gray-900 hover:text-gray-500 text-md">Obras</a></li>
 
-          <li x-data="{ open: false, label: 'Escritos' }" x-init="const path = window.location.pathname; if (path.includes('poemas')) { label = 'Poemas' } else if (path.includes('fragmentos')) { label = 'Fragmentos' } else if (path.includes('introspecciones')) { label = 'Introspecciones' }" class="relative">
+          <li x-data="{ open: false, label: 'Escritos' }"
+            x-init="const path = window.location.pathname; if (path.includes('poemas')) { label = 'Poemas' } else if (path.includes('fragmentos')) { label = 'Fragmentos' } else if (path.includes('introspecciones')) { label = 'Introspecciones' }"
+            class="relative">
             <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md font-bold">
-    <span x-text="label"></span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span x-text="label"></span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
@@ -255,7 +273,7 @@
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fragmentos</a></li>
               <li><a href="./introspecciones.html"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Introspecciones</a></li>
-                  
+
             </ul>
           </li>
           <li><a href="./contacto.html" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
@@ -295,22 +313,22 @@
             </ul>
           </li>
           <li><a href="./contacto.html" class="block py-2 border-b border-gray-200 text-gray-900">Contacto</a></li>
-         <li class="flex justify-center py-4">
-  <button @click="toggle()" class="flex items-center text-gray-900 dark:text-gray-200 p-2">
-    <!-- Ícono de Sol (Modo Claro) -->
-<svg x-show="!isDarkMode" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-              stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-            </svg>
-    <!-- Ícono de Luna (Modo Oscuro) -->
-    <svg x-show="isDarkMode" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round"
-        d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-    </svg>
-  </button>
-</li>
+          <li class="flex justify-center py-4">
+            <button @click="toggle()" class="flex items-center text-gray-900 dark:text-gray-200 p-2">
+              <!-- Ícono de Sol (Modo Claro) -->
+              <svg x-show="!isDarkMode" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+              </svg>
+              <!-- Ícono de Luna (Modo Oscuro) -->
+              <svg x-show="isDarkMode" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+              </svg>
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
@@ -356,7 +374,7 @@
           <h2 class="text-3xl text-center font-bold text-[var(--secondary-color)] mb-6" x-text="selectedPoem.title">
           </h2>
           <div x-html="selectedPoem.content"></div>
-          <div class="mt-8 text-center poem-signature" x-show="selectedPoemId !== 'pi-11'">
+          <div class="mt-8 text-center poem-signature">
             <p class="text-md">-Aylin Llans</p>
             <p class="text-sm text-gray-400" x-text="selectedPoem.date"></p>
           </div>
@@ -511,7 +529,21 @@
         <article>
           <h2>π¹¹</h2>
           <blockquote>
-            <p>Este poema ha sido omitido a propósito.<br>Porque el silencio también forma parte del lenguaje.</p>
+            <p>Me cautiva sentir<br>el viento acariciar mi piel.</p>
+            <p>Lo intento,<br>te juro que lo intento.<br>Busco refugio en el verde terco de una hoja,<br>en la espalda
+              de mármol de una estatua,<br>en el olor a página vieja,<br>en un sorbo de café.<br>El azul se derrama
+              sobre el horizonte.</p>
+            <p>Lo intento.<br>Te juro que lo intento.</p>
+            <p>Pero veo la ceniza donde hubo bosque,<br>y el eco de un martillo me desgarra el pecho.<br>Este ciclo de
+              ser para ya no ser<br>es como una flor que se ofrece al polvo.<br>El absurdo, con su boca desdentada, se
+              ríe de mí.</p>
+            <p>Aún así, lo intento.<br>Sujeto metas<br>y guardo un mapa de mañanas en el bolsillo,<br>incluso cuando el
+              absurdo<br>me deja tirada en el suelo,<br>pero termino moviéndome a través<br>de metas hechas de
+              niebla,<br>tan sólo para no hundirme en la quietud.</p>
+            <p>Y lloro;<br>(más seguido de lo que quisiera)<br>desde lo profundo del corazón,<br>lloro un grito mudo
+              frente al espejo<br>Luego sonrío y seco mis lágrimas,<br>pongo música y bailo, <br>bailo hasta borrar los
+              bordes de mi cuerpo.<br>No quiero ser quien se queda sumida en lágrimas.<br>Quiero ser la que actúa, la
+              que enciende y no apaga.</p>
           </blockquote>
           <footer>-Aylin Llans</footer>
         </article>
