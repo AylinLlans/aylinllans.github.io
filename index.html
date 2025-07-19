@@ -164,9 +164,11 @@
   }">
 
         <!-- === BARRA DE NAVEGACIÓN === -->
-        <nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-3 shadow-md" x-data="{ mobileMenuOpen: false }">
+        <nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-1 shadow-md" x-data="{ mobileMenuOpen: false }">
           <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
+            <a href="#inicio" class="logo-container">
+              <img src="./assets/logos/logo-firma.svg" alt="Logo firma de Aylin Llans" class="">
+            </a>
             <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none text-gray-900">
               <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

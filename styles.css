@@ -67,10 +67,14 @@ body {
 
 html.dark {
   /* Redefinimos las variables para el modo oscuro */
-  --background-primary: #111827; /* Un gris casi negro */
-  --background-secondary: #1F2937; /* Un gris un poco más claro para las tarjetas */
-  --primary-color: #E5E7EB;       /* Un gris muy claro para el texto principal */
-  --secondary-color: #93C5FD;     /* Un azul claro y vibrante para los acentos */
+  --background-primary: #111827;
+  /* Un gris casi negro */
+  --background-secondary: #1F2937;
+  /* Un gris un poco más claro para las tarjetas */
+  --primary-color: #E5E7EB;
+  /* Un gris muy claro para el texto principal */
+  --secondary-color: #93C5FD;
+  /* Un azul claro y vibrante para los acentos */
 }
 
 /* Pequeños ajustes para que los fondos blancos se adapten */
@@ -79,7 +83,8 @@ html.dark .bg-white {
 }
 
 html.dark .bg-gray-100 {
-  background-color: #374151; /* Un gris intermedio para fondos de imágenes */
+  background-color: #374151;
+  /* Un gris intermedio para fondos de imágenes */
 }
 
 /* Ajuste para el texto de la BIO y otros textos oscuros */
@@ -89,27 +94,97 @@ html.dark .text-gray-700 {
 }
 
 html.dark .bg-gray-50 {
-  background-color: #374151; /* Un gris oscuro para el texto del hover */
+  background-color: #374151;
+  /* Un gris oscuro para el texto del hover */
 }
+
+/* ================================================= */
+/* ===    ESTILOS BARRA DE NAVEGACIÓN Y LOGO     === */
+/* ================================================= */
+
+.logo-container img {
+  height: 68px;
+  transition: filter 0.3s ease-in-out;
+}
+
+/* --- Adaptaciones Modo Oscuro para la Navegación --- */
+
+/* 1. Invierte el color del logo (de negro a blanco) */
+html.dark .logo-container img {
+  filter: invert(1);
+}
+
+/* 2. Cambia el fondo y la sombra de la barra de navegación */
+html.dark nav.fixed {
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid #374151;
+  /* Borde sutil para separar */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+/* 3. Ajusta el color del texto de los enlaces y botones */
+html.dark nav ul a,
+html.dark nav button {
+  color: var(--primary-color);
+}
+
+html.dark nav ul a:hover,
+html.dark nav button:hover {
+  color: #9ca3af;
+  /* Un gris más suave para el hover */
+}
+
+/* 4. Adapta el menú desplegable de "Escritos" */
+html.dark nav .absolute.bg-white {
+  background-color: #374151;
+  border: 1px solid #4b5563;
+}
+
+html.dark nav .absolute.bg-white a {
+  color: var(--primary-color);
+}
+
+html.dark nav .absolute.bg-white a:hover {
+  background-color: #4b5563;
+}
+
+/* 5. Adapta el menú móvil completo */
+html.dark .md\:hidden.bg-white {
+  background-color: var(--background-secondary);
+  color: var(--primary-color);
+  border-top-color: #374151;
+}
+
+html.dark .md\:hidden ul a,
+html.dark .md\:hidden ul button {
+  color: var(--primary-color);
+  border-bottom-color: #374151;
+}
+
 /* ================================================= */
 /* ===         FIX TEMA OSCURO - POEMAS          === */
 /* ================================================= */
 
 /* Corrige el color de la firma y fecha en modo oscuro */
 html.dark .poem-signature p {
-  color: var(--primary-color); /* Usa el color de texto claro del tema oscuro */
+  color: var(--primary-color);
+  /* Usa el color de texto claro del tema oscuro */
 }
 
 /* Ajuste específico para la fecha, para que tenga un contraste sutil */
 html.dark .poem-signature .text-gray-400 {
-  color: #a1a1aa; /* Un tono de gris claro legible sobre fondo oscuro */
+  color: #a1a1aa;
+  /* Un tono de gris claro legible sobre fondo oscuro */
 }
+
 /* Corrección para el texto del footer en modo oscuro */
 html.dark .site-footer p {
-  color: #a1a1aa; /* Un gris claro legible */
+  color: #a1a1aa;
+  /* Un gris claro legible */
 }
 
 /* Corrección para la línea del borde en modo oscuro */
 html.dark .border-t {
-  border-color: #374151; /* Un gris oscuro que coincida con el tema */
+  border-color: #374151;
+  /* Un gris oscuro que coincida con el tema */
 }

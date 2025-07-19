@@ -75,37 +75,48 @@
     }
   </script>
 
-  <!-- Barra de Navegación -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-3 shadow-md" x-data="{ mobileMenuOpen: false }">
+  <!-- === BARRA DE NAVEGACIÓN === -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white px-4 py-1 shadow-md" x-data="{ mobileMenuOpen: false }">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <div class="text-xl font-bold text-gray-900 text-2xl">AylinLlans</div>
+      <!-- Logo -->
+      <a href="../index.html" class="logo-container">
+        <img src="../assets/logos/logo-firma.svg" alt="Logo firma de Aylin Llans" class="">
+      </a>
+
+      <!-- Botón del menú móvil -->
       <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden focus:outline-none text-gray-900">
         <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
+
+      <!-- Menú para pantallas grandes -->
       <ul class="hidden md:flex space-x-6 items-center">
         <li><a href="../index.html" class="text-gray-900 hover:text-gray-500 text-md">Inicio</a></li>
-        <li><a href="../index.html#obras" class="text-gray-900 hover:text-gray-500 text-md">Obras</a></li>
+        <li><a href="../index.html#obras"
+            class="text-gray-900 hover:text-gray-500 text-md transition duration-300">Obras</a></li>
 
-         <li x-data="{ open: false, label: 'Escritos' }" x-init="const path = window.location.pathname; if (path.includes('poemas')) { label = 'Poemas' } else if (path.includes('fragmentos')) { label = 'Fragmentos' } else if (path.includes('introspecciones')) { label = 'Introspecciones' }" class="relative">
-            <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md font-bold">
-    <span x-text="label"></span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <ul x-show="open" @click.away="open = false" x-transition
-              class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
-              <li><a href="./poemas.html"
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-bold">Poemas</a></li>
-              <li><a href="./fragmentos.html"
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fragmentos</a></li>
-              <li><a href="./introspecciones.html"
-                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Introspecciones</a></li>
-                
+        <!-- Menú "Escritos" con lógica Alpine.js -->
+        <li x-data="{ open: false, label: 'Escritos' }"
+          x-init="const path = window.location.pathname; if (path.includes('poemas')) { label = 'Poemas' } else if (path.includes('fragmentos')) { label = 'Fragmentos' } else if (path.includes('introspecciones')) { label = 'Introspecciones' }"
+          class="relative">
+          <button @click="open = !open" class="flex items-center text-gray-900 hover:text-gray-500 text-md font-bold">
+            <span x-text="label"></span> <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <ul x-show="open" @click.away="open = false" x-transition
+            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
+            <li><a href="./poemas.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Poemas</a></li>
+            <li><a href="./fragmentos.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fragmentos</a></li>
+            <li><a href="./introspecciones.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Introspecciones</a></li>
           </ul>
         </li>
+
         <li><a href="./contacto.html" class="text-gray-900 hover:text-gray-500 text-md">Contacto</a></li>
         <!-- Botón de tema oscuro -->
         <li>
@@ -124,6 +135,7 @@
         </li>
       </ul>
     </div>
+    <!-- Menú móvil -->
     <div x-show="mobileMenuOpen" class="md:hidden mt-2 px-4 bg-white text-gray-900 border-t border-gray-200">
       <ul class="flex flex-col space-y-2">
         <li><a href="../index.html" class="block py-2 border-b border-gray-200 text-gray-900">Inicio</a></li>
@@ -132,8 +144,9 @@
         <li x-data="{ open: false }" class="border-b border-gray-200">
           <button @click="open = !open"
             class="w-full flex justify-between items-center py-2 text-gray-900 text-left font-bold">
-            <span>Escritos</span><svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': open }" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24">
+            <span>Escritos</span>
+            <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
