@@ -246,7 +246,7 @@
               <li><a href="/pages/contacto.html" class="block py-2 border-b border-gray-200 text-gray-900">Contacto</a>
               </li>
 
-              <!-- === INICIO: CÓDIGO AÑADIDO === -->
+
               <li class="flex justify-center py-4">
                 <button @click="toggle()" class="flex items-center text-gray-900 p-2">
                   <svg x-show="!isDarkMode" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -261,7 +261,7 @@
                   </svg>
                 </button>
               </li>
-              <!-- === FIN: CÓDIGO AÑADIDO === -->
+
             </ul>
           </div>
         </nav>
@@ -276,42 +276,28 @@
               se
               camufla de idea, denuncia o juego.</p>
 
+            <!-- CÓDIGO CORREGIDO Y OPTIMIZADO PARA TABLET -->
             <section
-              class="bg-white mt-8 md:m-6 md:mt-16 p-8 md:p-8 md:pr-0 md:flex md:gap-8 rounded-lg shadow-md md:w-[90%] md:mx-auto">
-              <div class="md:w-2/3">
+              class="bg-white mt-8 mx-4 md:mx-6 lg:mx-auto p-8 lg:pr-0 lg:flex lg:gap-8 lg:items-center rounded-lg shadow-md lg:w-[90%]">
+
+              <!-- texto -->
+              <div class="lg:w-2/3">
                 <div
-                  class="text-[var(--primary-color)] space-y-6 text-md md:px-20 leading-relaxed text-center md:text-left">
-                  <p>"Aylin Llans es una autora y artista visual nacida en Ciudad de Buenos Aires, cuya obra transita
-                    los
-                    pliegues más íntimos de la conciencia humana. Su universo poético está atravesado por un
-                    cuestionamiento
-                    constante, el dolor existencial y la necesidad de autenticidad como anclaje en medio del absurdo.
+                  class="text-[var(--primary-color)] space-y-6 text-md md:px-10 lg:px-20 leading-relaxed text-center lg:text-left">
+                  <p>La obra de Aylin Llans, autora y artista visual radicada en Buenos Aires, es una exploración de los
+                    pliegues íntimos de la conciencia.</p>
+                  <p>En lugar de buscar consuelo, su voz confronta y revela el dolor existencial, la búsqueda de
+                    autenticidad y la belleza oculta en lo cotidiano. </p>
+                  <p>Tanto en su poesía como en sus composiciones visuales, cada pieza respira vulnerabilidad, lucidez y
+                    resistencia, honrando siempre el vínculo inseparable entre el cuerpo, la emoción y el pensamiento.
                   </p>
-                  <p>Con una voz lírica profundamente introspectiva, Aylin teje textos que no sólo expresan, sino que
-                    exploran
-                    las fisuras del ser: el desgarro de sentirse incomprendida, la angustia de existir, la belleza
-                    hallada
-                    en
-                    el instante trivial y la ternura que persiste aun en medio de la devastación. Su poesía, muchas
-                    veces
-                    desgarradora, no busca complacer —busca confrontar y revelar. Cada verso es un cuerpo que respira
-                    dolor,
-                    lucidez y resistencia.</p>
-                  <p>En sus composiciones visuales Aylin despliega una sensibilidad que complementa su escritura: un
-                    lenguaje
-                    plástico cargado de significado, donde la emoción se materializa, se observa y se honra. El arte
-                    visual,
-                    como su poesía, funciona como puente entre el cuerpo, el sentir y el pensamiento simbólico.</p>
-                  <p>Su estética: íntima, cruda, honesta. No hay máscaras, ni adornos innecesarios. Hay entrega. Y desde
-                    allí,
-                    Aylin invita al lector/espectador a reconocerse en su propia vulnerabilidad".</p>
-                  <p><i>Esta biografía no la escribí yo; quizás debería haberlo hecho pero funciona. Me cuesta hablar de
-                      mí, para eso está todo lo demás...</i></p>
                 </div>
               </div>
-              <div class="md:w-1/3 mt-8 md:mt-0 flex items-center justify-center">
+
+              <!-- imagen -->
+              <div class="mt-8 lg:mt-0 lg:w-1/3 flex items-center justify-center">
                 <img src="./images/aylinllans.png" alt="Aylin Llans, artista visual y poeta"
-                  class="rounded-lg w-full max-w-xs h-auto object-cover pr-0 md:pr-16">
+                  class="rounded-lg w-64 h-auto object-cover lg:pr-24">
               </div>
             </section>
           </div>
